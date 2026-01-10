@@ -1,22 +1,61 @@
-[tool.poetry]
-name = "latlonghelper"
-version = "0.1.0"
-description = "A package for cleaning geospatial data"
-authors = ["Paul Raadnui"]
-license = "MIT"
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-
-[tool.semantic_release]
-version_toml = [
-    "pyproject.toml:tool.poetry.version",
-]                                                    # version location
-branch = "main"                                      # branch to make releases of
-changelog_file = "CHANGELOG.md"                      # changelog file
-build_command = "pip install poetry && poetry build" # build dists 
-
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "latlonghelper"
+dynamic = ["version"]
+description = 'A package for cleaning and utilizing geospatial data. Allows the use of geospatial data to help create summarizations such as distance or create rudimentary plots via the binning functionality included in the package.'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "agill59", email = "amargill2627@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/agill59/latlonghelper#readme"
+Issues = "https://github.com/agill59/latlonghelper/issues"
+Source = "https://github.com/agill59/latlonghelper"
+
+[tool.hatch.version]
+path = "src/latlonghelper/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/latlonghelper tests}"
+
+[tool.coverage.run]
+source_pkgs = ["latlonghelper", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/latlonghelper/__about__.py",
+]
+
+[tool.coverage.paths]
+latlonghelper = ["src/latlonghelper", "*/latlonghelper/src/latlonghelper"]
+tests = ["tests", "*/latlonghelper/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
