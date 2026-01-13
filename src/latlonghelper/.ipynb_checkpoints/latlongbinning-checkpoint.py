@@ -23,3 +23,7 @@ def LatLongBinning(latitude: float, longitude: float, grid_size_latitude: float 
     >>> LatLongBinning(49.2593, -123.2475)
     '49.25_-123.25'    
     """
+    latitude_bin = (latitude//grid_size_latitude).astype(int)
+    longitude_bin = (latitude//grid_size_latitude).astype(int)
+    latlog_bin = latitude_bin.astype(str) + "_" + longitude_bin.astype(str)
+    return latlog_bin

@@ -1,3 +1,5 @@
+import math
+
 def LatLongBinning(latitude: float, longitude: float, grid_size_latitude: float = 0.01, grid_size_longitude: float = 0.01):
     """
     A function that is used to bin latitude and longitude into different groups
