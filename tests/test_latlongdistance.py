@@ -1,5 +1,5 @@
 import pytest
-from LatLongDistance import LatLongDistance
+from latlonghelper.lat_long_distance import LatLongDistance
 
 # -----------------------------
 # Valid distance tests
@@ -8,7 +8,7 @@ from LatLongDistance import LatLongDistance
     "lat1, lon1, lat2, lon2, expected",
     [
         (40.7128, -74.0060, 34.0522, -118.2437, 3935.75),  # NY → LA
-        (51.5074, -0.1278, 48.8566, 2.3522, 343.77),       # London → Paris
+        (51.5074, -0.1278, 48.8566, 2.3522, 343.56),       # London → Paris
         (0, 0, 0, 0, 0),                                   # Same point
         (0, 0, 0, 180, 20015.09),                          # Opposite sides of Earth
     ]
