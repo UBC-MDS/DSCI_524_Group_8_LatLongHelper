@@ -24,7 +24,11 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "pandas",
+  "matplotlib",
+  "seaborn"
+]
 
 [project.urls]
 Documentation = "https://github.com/agill59/latlonghelper#readme"
