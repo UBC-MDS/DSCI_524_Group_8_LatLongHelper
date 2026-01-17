@@ -1,3 +1,5 @@
 # read version from installed package
 from importlib.metadata import version
 __version__ = version("latlonghelper")
+
+from .__about__ import __version__
