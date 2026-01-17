@@ -5,15 +5,21 @@ import pandas as pd
 def PlotBinnedLatLong(binned_data, width=10, height=6):
     """
     Visualizes binned geographic coordinates on a heatmap.
-
+    
+    This function takes the output of `LatLongBinning` and visualizes the spatial
+    density of points using a heatmap, where each cell represents a latitude–
+    longitude bin and the color intensity indicates the number of observations
+    in that bin.
+    
     Parameters
     ----------
-    binned_data : String
-        Output of LatLongBinning
-    width: int
-        width of figure
-    height: int
-        height of figure
+    binned_data : iterable of str
+        Binned geographic coordinates formatted as "<latitude>_<longitude>",
+        for example "49.25_-123.25". Each element represents one observation.
+    width : int, optional
+        Width of the figure in inches (default is 10).
+    height : int, optional
+        Height of the figure in inches (default is 6).
 
     Returns
     -------
