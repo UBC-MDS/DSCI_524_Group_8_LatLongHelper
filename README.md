@@ -14,6 +14,18 @@ Functions included:
 ```bash
 $ pip install latlonghelper
 ```
+## To run the tests
+
+You can run the tests for this package using `pytest`. First, install the testing dependencies:
+
+```bash
+$ pip install -e.[test]
+```
+
+Then, run the tests with:
+```
+$ pytest
+```
 
 ## Contributing
 
