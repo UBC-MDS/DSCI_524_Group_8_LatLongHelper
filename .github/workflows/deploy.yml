@@ -38,8 +38,8 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
-  publish_release_to_pypi:
-    name: Publish release to PyPI
+  publish_release_to_testpypi:
+    name: Publish release to testPyPI
     needs: [build_package]
     runs-on: ubuntu-latest
     environment:
