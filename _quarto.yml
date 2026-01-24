@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "LatLongHelper Documentation"
+  description: "Python package for latitude–longitude binning, distance calculation, and visualization"
+  repo-url: https://github.com/UBC-MDS/DSCI_524_Group_8_LatLongHelper
+
+  navbar:
+    title: "LatLongHelper"
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Reference"
+        href: reference/index.qmd
+    right:
+      - icon: github
+        href: https://github.com/UBC-MDS/DSCI_524_Group_8_LatLongHelper
+
+  sidebar:
+    - title: "Functions"
+      contents:
+        - reference/index.qmd
+        - section: "Available Functions"
+          contents:
+            - reference/lat_long_binning.LatLongBinning.qmd
+            - reference/lat_long_distance.LatLongDistance.qmd
+            - reference/plot_binned_lat_long.PlotBinnedLatLong.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-copy: true
+
+quartodoc:
+  style: pkgdown
+  dir: reference
+  package: latlonghelper
+
+  options:
+    show_module: false
+
+  sections:
+    - title: "Geospatial Utility Functions"
+      desc: "Core classes for binning, distance computation, and plotting latitude–longitude data"
+      contents:
+        - lat_long_binning.LatLongBinning
+        - lat_long_distance.LatLongDistance
+        - plot_binned_lat_long.PlotBinnedLatLong

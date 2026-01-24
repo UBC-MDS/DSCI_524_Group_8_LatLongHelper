@@ -1,0 +1,371 @@
+[
+  {
+    "objectID": "reference/plot_binned_lat_long.PlotBinnedLatLong.html",
+    "href": "reference/plot_binned_lat_long.PlotBinnedLatLong.html",
+    "title": "PlotBinnedLatLong",
+    "section": "",
+    "text": "plot_binned_lat_long.PlotBinnedLatLong(binned_data, width=10, height=6)\nVisualizes binned geographic coordinates on a heatmap.\nThis function takes the output of LatLongBinning and visualizes the spatial density of points using a heatmap, where each cell represents a latitude– longitude bin and the color intensity indicates the number of observations in that bin.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nbinned_data\niterable of str\nBinned geographic coordinates formatted as “”, for example ”49.25-123.25”. Each element represents one observation.\nrequired\n\n\nwidth\nint\nWidth of the figure in inches (default is 10).\n10\n\n\nheight\nint\nHeight of the figure in inches (default is 6).\n6\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nmatplotlib.axes.Axes\nReturns the plot object for display.\n\n\n\n\n\n\n\n\n\nfig = PlotBinnedLatLong(binned_data) plt.show()",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "PlotBinnedLatLong"
+    ]
+  },
+  {
+    "objectID": "reference/plot_binned_lat_long.PlotBinnedLatLong.html#parameters",
+    "href": "reference/plot_binned_lat_long.PlotBinnedLatLong.html#parameters",
+    "title": "PlotBinnedLatLong",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nbinned_data\niterable of str\nBinned geographic coordinates formatted as “”, for example ”49.25-123.25”. Each element represents one observation.\nrequired\n\n\nwidth\nint\nWidth of the figure in inches (default is 10).\n10\n\n\nheight\nint\nHeight of the figure in inches (default is 6).\n6",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "PlotBinnedLatLong"
+    ]
+  },
+  {
+    "objectID": "reference/plot_binned_lat_long.PlotBinnedLatLong.html#returns",
+    "href": "reference/plot_binned_lat_long.PlotBinnedLatLong.html#returns",
+    "title": "PlotBinnedLatLong",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\n\nmatplotlib.axes.Axes\nReturns the plot object for display.",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "PlotBinnedLatLong"
+    ]
+  },
+  {
+    "objectID": "reference/plot_binned_lat_long.PlotBinnedLatLong.html#example",
+    "href": "reference/plot_binned_lat_long.PlotBinnedLatLong.html#example",
+    "title": "PlotBinnedLatLong",
+    "section": "",
+    "text": "fig = PlotBinnedLatLong(binned_data) plt.show()",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "PlotBinnedLatLong"
+    ]
+  },
+  {
+    "objectID": "reference/get_object.html",
+    "href": "reference/get_object.html",
+    "title": "get_object",
+    "section": "",
+    "text": "get_object(\n    path,\n    object_name=None,\n    parser='numpy',\n    load_aliases=True,\n    dynamic=False,\n    loader=None,\n)\nFetch a griffe object.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\npath\nstr\nAn import path to the object. This should have the form path.to.module:object. For example, quartodoc:get_object or quartodoc:MdRenderer.render.\nrequired\n\n\nobject_name\n'str | None'\n(Deprecated). A function name.\nNone\n\n\nparser\nstr\nA docstring parser to use.\n'numpy'\n\n\nload_aliases\n\nFor aliases that were imported from other modules, should we load that module?\nTrue\n\n\ndynamic\n\nWhether to dynamically import object. Useful if docstring is not hard-coded, but was set on object by running python code.\nFalse\n\n\n\n\n\n\npreview: print a user-friendly preview of a griffe object.\n\n\n\n&gt;&gt;&gt; get_function(\"quartodoc\", \"get_function\")\n&lt;Function('get_function', ...\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\nx\ndc.Object\nabc"
+  },
+  {
+    "objectID": "reference/get_object.html#parameters",
+    "href": "reference/get_object.html#parameters",
+    "title": "get_object",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\npath\nstr\nAn import path to the object. This should have the form path.to.module:object. For example, quartodoc:get_object or quartodoc:MdRenderer.render.\nrequired\n\n\nobject_name\n'str | None'\n(Deprecated). A function name.\nNone\n\n\nparser\nstr\nA docstring parser to use.\n'numpy'\n\n\nload_aliases\n\nFor aliases that were imported from other modules, should we load that module?\nTrue\n\n\ndynamic\n\nWhether to dynamically import object. Useful if docstring is not hard-coded, but was set on object by running python code.\nFalse"
+  },
+  {
+    "objectID": "reference/get_object.html#see-also",
+    "href": "reference/get_object.html#see-also",
+    "title": "get_object",
+    "section": "",
+    "text": "preview: print a user-friendly preview of a griffe object."
+  },
+  {
+    "objectID": "reference/get_object.html#examples",
+    "href": "reference/get_object.html#examples",
+    "title": "get_object",
+    "section": "",
+    "text": "&gt;&gt;&gt; get_function(\"quartodoc\", \"get_function\")\n&lt;Function('get_function', ..."
+  },
+  {
+    "objectID": "reference/get_object.html#returns",
+    "href": "reference/get_object.html#returns",
+    "title": "get_object",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\nx\ndc.Object\nabc"
+  },
+  {
+    "objectID": "reference/preview.html",
+    "href": "reference/preview.html",
+    "title": "preview",
+    "section": "",
+    "text": "preview(ast, max_depth=999, compact=False, as_string=False)\nPrint a friendly representation of a griffe object (e.g. function, docstring)\n\n\n&gt;&gt;&gt; from quartodoc import get_object\n&gt;&gt;&gt; obj = get_object(\"quartodoc\", \"get_object\")\n&gt;&gt;&gt; preview(obj.docstring.parsed)\n...\n&gt;&gt;&gt; preview(obj)\n..."
+  },
+  {
+    "objectID": "reference/preview.html#examples",
+    "href": "reference/preview.html#examples",
+    "title": "preview",
+    "section": "",
+    "text": "&gt;&gt;&gt; from quartodoc import get_object\n&gt;&gt;&gt; obj = get_object(\"quartodoc\", \"get_object\")\n&gt;&gt;&gt; preview(obj.docstring.parsed)\n...\n&gt;&gt;&gt; preview(obj)\n..."
+  },
+  {
+    "objectID": "CONDUCT.html",
+    "href": "CONDUCT.html",
+    "title": "Code of Conduct: DSCI 524: Group 8",
+    "section": "",
+    "text": "In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.\n\n\n\nExamples of behavior that contributes to creating a positive environment include:\n\nUsing welcoming and inclusive language\nBeing respectful of differing viewpoints and experiences\nGracefully accepting constructive criticism\nFocusing on what is best for the community\nShowing empathy towards other community members\n\nExamples of unacceptable behavior by participants include:\n\nThe use of sexualized language or imagery and unwelcome sexual attention or advances\nTrolling, insulting/derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical or electronic address, without explicit permission\nOther conduct which could reasonably be considered inappropriate in a professional setting\n\n\n\n\nProject maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.\nProject maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.\n\n\n\nThis Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.\n\n\n\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [sapolraadnui@gmail.com]. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.\nProject maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership.\n\n\n\nThis Code of Conduct is adapted from the Contributor Covenant homepage, version 1.4."
+  },
+  {
+    "objectID": "CONDUCT.html#our-pledge",
+    "href": "CONDUCT.html#our-pledge",
+    "title": "Code of Conduct: DSCI 524: Group 8",
+    "section": "",
+    "text": "In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation."
+  },
+  {
+    "objectID": "CONDUCT.html#our-standards",
+    "href": "CONDUCT.html#our-standards",
+    "title": "Code of Conduct: DSCI 524: Group 8",
+    "section": "",
+    "text": "Examples of behavior that contributes to creating a positive environment include:\n\nUsing welcoming and inclusive language\nBeing respectful of differing viewpoints and experiences\nGracefully accepting constructive criticism\nFocusing on what is best for the community\nShowing empathy towards other community members\n\nExamples of unacceptable behavior by participants include:\n\nThe use of sexualized language or imagery and unwelcome sexual attention or advances\nTrolling, insulting/derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical or electronic address, without explicit permission\nOther conduct which could reasonably be considered inappropriate in a professional setting"
+  },
+  {
+    "objectID": "CONDUCT.html#our-responsibilities",
+    "href": "CONDUCT.html#our-responsibilities",
+    "title": "Code of Conduct: DSCI 524: Group 8",
+    "section": "",
+    "text": "Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.\nProject maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful."
+  },
+  {
+    "objectID": "CONDUCT.html#scope",
+    "href": "CONDUCT.html#scope",
+    "title": "Code of Conduct: DSCI 524: Group 8",
+    "section": "",
+    "text": "This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers."
+  },
+  {
+    "objectID": "CONDUCT.html#enforcement",
+    "href": "CONDUCT.html#enforcement",
+    "title": "Code of Conduct: DSCI 524: Group 8",
+    "section": "",
+    "text": "Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [sapolraadnui@gmail.com]. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.\nProject maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project’s leadership."
+  },
+  {
+    "objectID": "CONDUCT.html#attribution",
+    "href": "CONDUCT.html#attribution",
+    "title": "Code of Conduct: DSCI 524: Group 8",
+    "section": "",
+    "text": "This Code of Conduct is adapted from the Contributor Covenant homepage, version 1.4."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "A package for cleaning and utilizing geospatial data. Allows the use of geospatial data to help create summarizations such as distance or create rudimentary plots via the binning functionality included in the package.\nFunctions included: - LatLongDistance: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates. - LatLongBinning: bins latitude and longitude into different groups to aid in grouping or for use in PlotBinnedLatLong. - PlotBinnedLatLong: visualizes binned geographic coordinates on a heatmap.\nLatLongDistance is a common function found in many packages such as GeoPy and Haversine. However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple Pandas functions to do so. We aim to create a simplification of the binning and their plot without the user’s having to rely on multiple uses and transformation on their part.\n\n\n\n\n\nPython 3.8+\npip\n\n\n\n\nClone the repository and install the package in editable mode:\ngit clone https://github.com/UBC-MDS/latlonghelper\ncd latlonghelper\npip install -e .\n\n\n\n\nYou can run the tests for this package using pytest. First, install the testing dependencies:\n$ pip install -e.[test]\nThen, run the tests with:\n$ pytest\n\n\n\nThe following Python packages are required:\n\npandas\nmatplotlib\nseaborn\n\nFor development and testing:\n\npytest\n\n\n\n\nInterested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.\n\n\n\nIt is licensed under the terms of the MIT license.\n\n\n\nlatlonghelper was created by Paul Raadnui, Ashifa Hassam and Amar Gill.\n\n\n\nlatlonghelper was created with cookiecutter and the py-pkgs-cookiecutter template."
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "Python 3.8+\npip\n\n\n\n\nClone the repository and install the package in editable mode:\ngit clone https://github.com/UBC-MDS/latlonghelper\ncd latlonghelper\npip install -e ."
+  },
+  {
+    "objectID": "index.html#to-run-the-tests",
+    "href": "index.html#to-run-the-tests",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "You can run the tests for this package using pytest. First, install the testing dependencies:\n$ pip install -e.[test]\nThen, run the tests with:\n$ pytest"
+  },
+  {
+    "objectID": "index.html#dependencies",
+    "href": "index.html#dependencies",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "The following Python packages are required:\n\npandas\nmatplotlib\nseaborn\n\nFor development and testing:\n\npytest"
+  },
+  {
+    "objectID": "index.html#contributing",
+    "href": "index.html#contributing",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "It is licensed under the terms of the MIT license."
+  },
+  {
+    "objectID": "index.html#contributors",
+    "href": "index.html#contributors",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "latlonghelper was created by Paul Raadnui, Ashifa Hassam and Amar Gill."
+  },
+  {
+    "objectID": "index.html#credits",
+    "href": "index.html#credits",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "latlonghelper was created with cookiecutter and the py-pkgs-cookiecutter template."
+  },
+  {
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "First release of latlonghelper!"
+  },
+  {
+    "objectID": "CHANGELOG.html#v0.1.0-05012026",
+    "href": "CHANGELOG.html#v0.1.0-05012026",
+    "title": "Changelog",
+    "section": "",
+    "text": "First release of latlonghelper!"
+  },
+  {
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "Contributing",
+    "section": "",
+    "text": "Contributions are welcome, and they are greatly appreciated! Every little bit helps, and credit will always be given.\n\n\n\n\nIf you are reporting a bug, please include:\n\nYour operating system name and version.\nAny details about your local setup that might be helpful in troubleshooting.\nDetailed steps to reproduce the bug.\n\n\n\n\nLook through the GitHub issues for bugs. Anything tagged with “bug” and “help wanted” is open to whoever wants to implement it.\n\n\n\nLook through the GitHub issues for features. Anything tagged with “enhancement” and “help wanted” is open to whoever wants to implement it.\n\n\n\nYou can never have enough documentation! Please feel free to contribute to any part of the documentation, such as the official docs, docstrings, or even on the web in blog posts, articles, and such.\n\n\n\nIf you are proposing a feature:\n\nExplain in detail how it would work.\nKeep the scope as narrow as possible, to make it easier to implement.\nRemember that this is a volunteer-driven project, and that contributions are welcome :)\n\n\n\n\n\nReady to contribute? Here’s how to set up latlonghelper for local development.\n\nDownload a copy of latlonghelper locally.\nCreate and activate a conda environment for latlonghelper:\n$ conda create -n latlonghelper python=3.12\n$ conda activate latlonghelper\nInstall latlonghelper using poetry:\n$ poetry install\nUse git (or similar) to create a branch for local development and make your changes:\n$ git checkout -b name-of-your-bugfix-or-feature\nWhen you’re done making changes, check that your changes conform to any code formatting requirements and pass any tests.\nCommit your changes and open a pull request.\n\n\n\n\nBefore you submit a pull request, check that it meets these guidelines:\n\nThe pull request should include additional tests if appropriate.\nIf the pull request adds functionality, the docs should be updated.\nThe pull request should work for all currently supported operating systems and versions of Python.\n\n\n\n\nPlease note that the latlonghelper project is released with a Code of Conduct. By contributing to this project you agree to abide by its terms."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#types-of-contributions",
+    "href": "CONTRIBUTING.html#types-of-contributions",
+    "title": "Contributing",
+    "section": "",
+    "text": "If you are reporting a bug, please include:\n\nYour operating system name and version.\nAny details about your local setup that might be helpful in troubleshooting.\nDetailed steps to reproduce the bug.\n\n\n\n\nLook through the GitHub issues for bugs. Anything tagged with “bug” and “help wanted” is open to whoever wants to implement it.\n\n\n\nLook through the GitHub issues for features. Anything tagged with “enhancement” and “help wanted” is open to whoever wants to implement it.\n\n\n\nYou can never have enough documentation! Please feel free to contribute to any part of the documentation, such as the official docs, docstrings, or even on the web in blog posts, articles, and such.\n\n\n\nIf you are proposing a feature:\n\nExplain in detail how it would work.\nKeep the scope as narrow as possible, to make it easier to implement.\nRemember that this is a volunteer-driven project, and that contributions are welcome :)"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#get-started",
+    "href": "CONTRIBUTING.html#get-started",
+    "title": "Contributing",
+    "section": "",
+    "text": "Ready to contribute? Here’s how to set up latlonghelper for local development.\n\nDownload a copy of latlonghelper locally.\nCreate and activate a conda environment for latlonghelper:\n$ conda create -n latlonghelper python=3.12\n$ conda activate latlonghelper\nInstall latlonghelper using poetry:\n$ poetry install\nUse git (or similar) to create a branch for local development and make your changes:\n$ git checkout -b name-of-your-bugfix-or-feature\nWhen you’re done making changes, check that your changes conform to any code formatting requirements and pass any tests.\nCommit your changes and open a pull request."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#pull-request-guidelines",
+    "href": "CONTRIBUTING.html#pull-request-guidelines",
+    "title": "Contributing",
+    "section": "",
+    "text": "Before you submit a pull request, check that it meets these guidelines:\n\nThe pull request should include additional tests if appropriate.\nIf the pull request adds functionality, the docs should be updated.\nThe pull request should work for all currently supported operating systems and versions of Python."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#code-of-conduct",
+    "href": "CONTRIBUTING.html#code-of-conduct",
+    "title": "Contributing",
+    "section": "",
+    "text": "Please note that the latlonghelper project is released with a Code of Conduct. By contributing to this project you agree to abide by its terms."
+  },
+  {
+    "objectID": "reference/lat_long_binning.LatLongBinning.html",
+    "href": "reference/lat_long_binning.LatLongBinning.html",
+    "title": "LatLongBinning",
+    "section": "",
+    "text": "lat_long_binning.LatLongBinning(\n    latitude,\n    longitude,\n    grid_size_latitude=0.01,\n    grid_size_longitude=0.01,\n)\nA function that is used to bin latitude and longitude into different groups\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nlatitude\nfloat\nLatitude in degrees (-90 to 90)\nrequired\n\n\nlongitude\nfloat\nLongitude in degrees (-180 to 180)\nrequired\n\n\ngrid_size_latitude\nfloat\nGrid size of latitude in degrees\n0.01\n\n\ngrid_size_longitude\nfloat\nGrid size of longitude in degrees\n0.01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nstr\nIdentifier of the binned latitude–longitude grid cell\n\n\n\n\n\n\n\n\n\nLatLongBinning(49.2593, -123.2475) ‘49.25_-123.25’",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "LatLongBinning"
+    ]
+  },
+  {
+    "objectID": "reference/lat_long_binning.LatLongBinning.html#parameters",
+    "href": "reference/lat_long_binning.LatLongBinning.html#parameters",
+    "title": "LatLongBinning",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nlatitude\nfloat\nLatitude in degrees (-90 to 90)\nrequired\n\n\nlongitude\nfloat\nLongitude in degrees (-180 to 180)\nrequired\n\n\ngrid_size_latitude\nfloat\nGrid size of latitude in degrees\n0.01\n\n\ngrid_size_longitude\nfloat\nGrid size of longitude in degrees\n0.01",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "LatLongBinning"
+    ]
+  },
+  {
+    "objectID": "reference/lat_long_binning.LatLongBinning.html#returns",
+    "href": "reference/lat_long_binning.LatLongBinning.html#returns",
+    "title": "LatLongBinning",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\n\nstr\nIdentifier of the binned latitude–longitude grid cell",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "LatLongBinning"
+    ]
+  },
+  {
+    "objectID": "reference/lat_long_binning.LatLongBinning.html#example",
+    "href": "reference/lat_long_binning.LatLongBinning.html#example",
+    "title": "LatLongBinning",
+    "section": "",
+    "text": "LatLongBinning(49.2593, -123.2475) ‘49.25_-123.25’",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "LatLongBinning"
+    ]
+  },
+  {
+    "objectID": "reference/lat_long_distance.LatLongDistance.html",
+    "href": "reference/lat_long_distance.LatLongDistance.html",
+    "title": "LatLongDistance",
+    "section": "",
+    "text": "lat_long_distance.LatLongDistance(\n    latitude_1,\n    longitude_1,\n    latitude_2,\n    longitude_2,\n)\nA function that calculates the distance between two geographic points given their latitude and longitude coordinates.\nAddendum: The use of the Haversine formula for distance calculation was suggested by ChatGPT. The Haversine formula was chosen because it accounts for the curvature of the Earth, providing an accurate “great-circle” distance between two points given their latitude and longitude, rather than assuming a flat surface.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nlatitude_1\nfloat\nLatitude of the first point in degrees (-90 to 90)\nrequired\n\n\nlongitude_1\nfloat\nLongitude of the first point in degrees (-180 to 180)\nrequired\n\n\nlatitude_2\nfloat\nLatitude of the second point in degrees (-90 to 90)\nrequired\n\n\nlongitude_2\nfloat\nLongitude of the second point in degrees (-180 to 180)\nrequired\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\ndistance\nfloat\nDistance between the two points (in kilometers)\n\n\n\n\n\n\n\n\n\nLatLongDistance(40.7128, -74.0060, 34.0522, -118.2437) 3935.75",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "LatLongDistance"
+    ]
+  },
+  {
+    "objectID": "reference/lat_long_distance.LatLongDistance.html#parameters",
+    "href": "reference/lat_long_distance.LatLongDistance.html#parameters",
+    "title": "LatLongDistance",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\nlatitude_1\nfloat\nLatitude of the first point in degrees (-90 to 90)\nrequired\n\n\nlongitude_1\nfloat\nLongitude of the first point in degrees (-180 to 180)\nrequired\n\n\nlatitude_2\nfloat\nLatitude of the second point in degrees (-90 to 90)\nrequired\n\n\nlongitude_2\nfloat\nLongitude of the second point in degrees (-180 to 180)\nrequired",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "LatLongDistance"
+    ]
+  },
+  {
+    "objectID": "reference/lat_long_distance.LatLongDistance.html#returns",
+    "href": "reference/lat_long_distance.LatLongDistance.html#returns",
+    "title": "LatLongDistance",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\ndistance\nfloat\nDistance between the two points (in kilometers)",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "LatLongDistance"
+    ]
+  },
+  {
+    "objectID": "reference/lat_long_distance.LatLongDistance.html#example",
+    "href": "reference/lat_long_distance.LatLongDistance.html#example",
+    "title": "LatLongDistance",
+    "section": "",
+    "text": "LatLongDistance(40.7128, -74.0060, 34.0522, -118.2437) 3935.75",
+    "crumbs": [
+      "Reference",
+      "Available Functions",
+      "LatLongDistance"
+    ]
+  },
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
+    "section": "",
+    "text": "Core classes for binning, distance computation, and plotting latitude–longitude data\n\n\n\nlat_long_binning.LatLongBinning\nA function that is used to bin latitude and longitude into different groups\n\n\nlat_long_distance.LatLongDistance\nA function that calculates the distance between two geographic points given their latitude\n\n\nplot_binned_lat_long.PlotBinnedLatLong\nVisualizes binned geographic coordinates on a heatmap.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#geospatial-utility-functions",
+    "href": "reference/index.html#geospatial-utility-functions",
+    "title": "Function reference",
+    "section": "",
+    "text": "Core classes for binning, distance computation, and plotting latitude–longitude data\n\n\n\nlat_long_binning.LatLongBinning\nA function that is used to bin latitude and longitude into different groups\n\n\nlat_long_distance.LatLongDistance\nA function that calculates the distance between two geographic points given their latitude\n\n\nplot_binned_lat_long.PlotBinnedLatLong\nVisualizes binned geographic coordinates on a heatmap.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  }
+]

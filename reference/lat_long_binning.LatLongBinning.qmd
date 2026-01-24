@@ -1,0 +1,36 @@
+---
+title: "LatLongBinning"
+---
+
+# lat_long_binning.LatLongBinning { #latlonghelper.lat_long_binning.LatLongBinning }
+
+```python
+lat_long_binning.LatLongBinning(
+    latitude,
+    longitude,
+    grid_size_latitude=0.01,
+    grid_size_longitude=0.01,
+)
+```
+
+A function that is used to bin latitude and longitude into different groups
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name                | Type   | Description                        | Default    |
+|---------------------|--------|------------------------------------|------------|
+| latitude            | float  | Latitude in degrees (-90 to 90)    | _required_ |
+| longitude           | float  | Longitude in degrees (-180 to 180) | _required_ |
+| grid_size_latitude  | float  | Grid size of latitude in degrees   | `0.01`     |
+| grid_size_longitude | float  | Grid size of longitude in degrees  | `0.01`     |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name   | Type   | Description                                           |
+|--------|--------|-------------------------------------------------------|
+|        | str    | Identifier of the binned latitude–longitude grid cell |
+
+## Example {.doc-section .doc-section-example}
+
+>>> LatLongBinning(49.2593, -123.2475)
+'49.25_-123.25'
