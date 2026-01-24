@@ -52,6 +52,11 @@ Then, run the tests with:
 ```
 pytest
 ```
+To view the test coverage, run the following command:
+```
+pytest --cov=src/latlonghelper
+```
+
 
 ## Dependencies
 
@@ -64,6 +69,17 @@ Runtime dependencies:
 Development and testing dependencies:
 - pytest
 - pytest-cov
+
+## Build, Preview, and Deploy the Documentation
+1. Build and preview the documentation.
+```bash
+quartodoc build
+quarto preview
+```
+To update the documentation website.
+```bash
+quarto publish gh-pages
+```
 
 ## Contributing
 
