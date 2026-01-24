@@ -1,0 +1,43 @@
+---
+title: "LatLongDistance"
+---
+
+# lat_long_distance.LatLongDistance { #latlonghelper.lat_long_distance.LatLongDistance }
+
+```python
+lat_long_distance.LatLongDistance(
+    latitude_1,
+    longitude_1,
+    latitude_2,
+    longitude_2,
+)
+```
+
+A function that calculates the distance between two geographic points given their latitude 
+and longitude coordinates.
+
+Addendum:
+The use of the Haversine formula for distance calculation was suggested by ChatGPT. 
+The Haversine formula was chosen because it accounts for the curvature of the Earth, 
+providing an accurate “great-circle” distance between two points given their latitude 
+and longitude, rather than assuming a flat surface.
+
+## Parameters {.doc-section .doc-section-parameters}
+
+| Name        | Type   | Description                                            | Default    |
+|-------------|--------|--------------------------------------------------------|------------|
+| latitude_1  | float  | Latitude of the first point in degrees (-90 to 90)     | _required_ |
+| longitude_1 | float  | Longitude of the first point in degrees (-180 to 180)  | _required_ |
+| latitude_2  | float  | Latitude of the second point in degrees (-90 to 90)    | _required_ |
+| longitude_2 | float  | Longitude of the second point in degrees (-180 to 180) | _required_ |
+
+## Returns {.doc-section .doc-section-returns}
+
+| Name     | Type   | Description                                     |
+|----------|--------|-------------------------------------------------|
+| distance | float  | Distance between the two points (in kilometers) |
+
+## Example {.doc-section .doc-section-example}
+
+>>> LatLongDistance(40.7128, -74.0060, 34.0522, -118.2437)
+3935.75

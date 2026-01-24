@@ -1,3 +1,7 @@
-.DS_Store
+_site/
+.coverage
 __pycache__/
 *.pyc
+.DS_Store
+.quarto/
+objects.json

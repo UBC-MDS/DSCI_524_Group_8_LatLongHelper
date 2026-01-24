@@ -1,0 +1,11 @@
+# Function reference {.doc .doc-index}
+
+## Geospatial Utility Functions
+
+Core classes for binning, distance computation, and plotting latitude–longitude data
+
+| | |
+| --- | --- |
+| [lat_long_binning.LatLongBinning](lat_long_binning.LatLongBinning.qmd#latlonghelper.lat_long_binning.LatLongBinning) | A function that is used to bin latitude and longitude into different groups |
+| [lat_long_distance.LatLongDistance](lat_long_distance.LatLongDistance.qmd#latlonghelper.lat_long_distance.LatLongDistance) | A function that calculates the distance between two geographic points given their latitude  |
+| [plot_binned_lat_long.PlotBinnedLatLong](plot_binned_lat_long.PlotBinnedLatLong.qmd#latlonghelper.plot_binned_lat_long.PlotBinnedLatLong) | Visualizes binned geographic coordinates on a heatmap. |
