@@ -55,4 +55,5 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
-          attestations: false 
+          verbose: true  # This will reveal the REAL reason for the 400 error
+          print-hash: true
