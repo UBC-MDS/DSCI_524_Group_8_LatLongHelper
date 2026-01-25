@@ -43,8 +43,8 @@ jobs:
     needs: [build_package]
     runs-on: ubuntu-latest
     environment:
-      name: pypi
-      url: https://test.pypi.org/project/latlonghelper/
+      name: testpypi
+      url: https://test.pypi.org/p/latlonghelper/
     permissions:
       contents: read # this job needs read access
       id-token: write # but also needs to be able to write the publishing token
@@ -55,4 +55,4 @@ jobs:
           path: dist/
       - uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
         with:
-          repository-url: https://test.pypi.org/project/latlonghelper/
+          repository-url: https://test.pypi.org/legacy
