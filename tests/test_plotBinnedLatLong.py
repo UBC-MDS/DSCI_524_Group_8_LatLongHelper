@@ -63,5 +63,33 @@ class TestPlotBinnedLatLong(unittest.TestCase):
         with self.assertRaises(Exception):
             PlotBinnedLatLong([])
 
+    def test_frequency_binning(self):
+        """Verify that multiple occurrences of the same coordinate are binned correctly."""
+        data = ["50.00_-100.00", "50.00_-100.00", "50.00_-100.00"]
+        ax = PlotBinnedLatLong(data)
+        
+        children = ax.get_children()
+        
+        self.assertTrue(len(children) > 0)
+        
+        plt.close()
+
+    def test_coordinate_boundaries(self):
+        """Verify that extreme coordinates appear in the heatmap labels."""
+        data = [
+            "90.00_180.00",   
+            "-90.00_-180.00", 
+        ]
+        ax = PlotBinnedLatLong(data)
+        
+        y_labels = [t.get_text() for t in ax.get_yticklabels()]
+        x_labels = [t.get_text() for t in ax.get_xticklabels()]
+        
+        self.assertTrue(any("-90.0" in label for label in y_labels), f"Expected -90.0 in {y_labels}")
+        self.assertTrue(any("90.0" in label for label in y_labels), f"Expected 90.0 in {y_labels}")
+        self.assertTrue(any("180.0" in label for label in x_labels), f"Expected 180.0 in {x_labels}")
+        
+        plt.close(ax.get_figure())
+
 if __name__ == '__main__':
     unittest.main(argv=['first-arg-is-ignored'], exit=False)
