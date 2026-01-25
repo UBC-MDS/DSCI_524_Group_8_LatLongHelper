@@ -150,35 +150,49 @@
     "href": "index.html",
     "title": "latlonghelper",
     "section": "",
-    "text": "A package for cleaning and utilizing geospatial data. Allows the use of geospatial data to help create summarizations such as distance or create rudimentary plots via the binning functionality included in the package.\nFunctions included: - LatLongDistance: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates. - LatLongBinning: bins latitude and longitude into different groups to aid in grouping or for use in PlotBinnedLatLong. - PlotBinnedLatLong: visualizes binned geographic coordinates on a heatmap.\nLatLongDistance is a common function found in many packages such as GeoPy and Haversine. However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple Pandas functions to do so. We aim to create a simplification of the binning and their plot without the user’s having to rely on multiple uses and transformation on their part.\n\n\n\n\n\nPython 3.8+\npip\n\n\n\n\nClone the repository and install the package in editable mode:\ngit clone https://github.com/UBC-MDS/latlonghelper\ncd latlonghelper\npip install -e .\n\n\n\n\nYou can run the tests for this package using pytest. First, install the testing dependencies:\n$ pip install -e.[test]\nThen, run the tests with:\n$ pytest\n\n\n\nThe following Python packages are required:\n\npandas\nmatplotlib\nseaborn\n\nFor development and testing:\n\npytest\n\n\n\n\nInterested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.\n\n\n\nIt is licensed under the terms of the MIT license.\n\n\n\nlatlonghelper was created by Paul Raadnui, Ashifa Hassam and Amar Gill.\n\n\n\nlatlonghelper was created with cookiecutter and the py-pkgs-cookiecutter template."
+    "text": "A package for cleaning and utilizing geospatial data. Allows the use of geospatial data to help create summarizations such as distance or create rudimentary plots via the binning functionality included in the package.\nFunctions included: - LatLongDistance: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates. - LatLongBinning: bins latitude and longitude into different groups to aid in grouping or for use in PlotBinnedLatLong. - PlotBinnedLatLong: visualizes binned geographic coordinates on a heatmap.\nLatLongDistance is a common function found in many packages such as GeoPy and Haversine. However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple Pandas functions to do so. We aim to create a simplification of the binning and their plot without the user’s having to rely on multiple uses and transformation on their part.\n\n\nFull documentation, including API references and examples, is available at:\n👉 https://UBC-MDS.github.io/latlonghelper/\n\n\n\n\n\n\nPython 3.8+\npip\n\n\n\n\nClone the repository and install the package in editable mode:\ngit clone https://github.com/UBC-MDS/latlonghelper\ncd latlonghelper\n\n\n\nIf you are using conda, you can create the development environment using:\nconda env create -f environment.yml\nconda activate latlonghelper-env\npip install -e .\n\n\n\n\nYou can run the tests for this package using pytest. First, install the testing dependencies:\npip install -e \".[dev]\"\nThen, run the tests with:\npytest\nTo view the test coverage, run the following command:\npytest --cov=src/latlonghelper\n\n\n\nThe following Python packages are required: Runtime dependencies: - pandas - matplotlib - seaborn\nDevelopment and testing dependencies: - pytest - pytest-cov\n\n\n\n\nBuild and preview the documentation.\n\nquartodoc build\nquarto preview\nTo update the documentation website.\nquarto publish gh-pages\n\n\n\nInterested in contributing? Please see the CONTRIBUTING.md file. This project is released with a Code of Conduct, and by contributing you agree to abide by its terms.\n\n\n\nIt is licensed under the terms of the MIT license.\n\n\n\nlatlonghelper was created by Paul Raadnui, Ashifa Hassam and Amar Gill.\n\n\n\nlatlonghelper was created with cookiecutter and the py-pkgs-cookiecutter template."
+  },
+  {
+    "objectID": "index.html#documentation",
+    "href": "index.html#documentation",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "Full documentation, including API references and examples, is available at:\n👉 https://UBC-MDS.github.io/latlonghelper/"
   },
   {
     "objectID": "index.html#installation",
     "href": "index.html#installation",
     "title": "latlonghelper",
     "section": "",
-    "text": "Python 3.8+\npip\n\n\n\n\nClone the repository and install the package in editable mode:\ngit clone https://github.com/UBC-MDS/latlonghelper\ncd latlonghelper\npip install -e ."
+    "text": "Python 3.8+\npip\n\n\n\n\nClone the repository and install the package in editable mode:\ngit clone https://github.com/UBC-MDS/latlonghelper\ncd latlonghelper\n\n\n\nIf you are using conda, you can create the development environment using:\nconda env create -f environment.yml\nconda activate latlonghelper-env\npip install -e ."
   },
   {
     "objectID": "index.html#to-run-the-tests",
     "href": "index.html#to-run-the-tests",
     "title": "latlonghelper",
     "section": "",
-    "text": "You can run the tests for this package using pytest. First, install the testing dependencies:\n$ pip install -e.[test]\nThen, run the tests with:\n$ pytest"
+    "text": "You can run the tests for this package using pytest. First, install the testing dependencies:\npip install -e \".[dev]\"\nThen, run the tests with:\npytest\nTo view the test coverage, run the following command:\npytest --cov=src/latlonghelper"
   },
   {
     "objectID": "index.html#dependencies",
     "href": "index.html#dependencies",
     "title": "latlonghelper",
     "section": "",
-    "text": "The following Python packages are required:\n\npandas\nmatplotlib\nseaborn\n\nFor development and testing:\n\npytest"
+    "text": "The following Python packages are required: Runtime dependencies: - pandas - matplotlib - seaborn\nDevelopment and testing dependencies: - pytest - pytest-cov"
+  },
+  {
+    "objectID": "index.html#build-preview-and-deploy-the-documentation",
+    "href": "index.html#build-preview-and-deploy-the-documentation",
+    "title": "latlonghelper",
+    "section": "",
+    "text": "Build and preview the documentation.\n\nquartodoc build\nquarto preview\nTo update the documentation website.\nquarto publish gh-pages"
   },
   {
     "objectID": "index.html#contributing",
     "href": "index.html#contributing",
     "title": "latlonghelper",
     "section": "",
-    "text": "Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms."
+    "text": "Interested in contributing? Please see the CONTRIBUTING.md file. This project is released with a Code of Conduct, and by contributing you agree to abide by its terms."
   },
   {
     "objectID": "index.html#license",

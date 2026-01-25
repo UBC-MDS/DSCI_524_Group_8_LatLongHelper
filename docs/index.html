@@ -156,13 +156,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#latlonghelper" id="toc-latlonghelper" class="nav-link active" data-scroll-target="#latlonghelper">latlonghelper</a>
   <ul class="collapse">
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
   <ul class="collapse">
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#install-from-source-recommended" id="toc-install-from-source-recommended" class="nav-link" data-scroll-target="#install-from-source-recommended">Install from source (recommended)</a></li>
+  <li><a href="#create-a-conda-environment" id="toc-create-a-conda-environment" class="nav-link" data-scroll-target="#create-a-conda-environment">Create a conda environment</a></li>
   </ul></li>
   <li><a href="#to-run-the-tests" id="toc-to-run-the-tests" class="nav-link" data-scroll-target="#to-run-the-tests">To run the tests</a></li>
   <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
+  <li><a href="#build-preview-and-deploy-the-documentation" id="toc-build-preview-and-deploy-the-documentation" class="nav-link" data-scroll-target="#build-preview-and-deploy-the-documentation">Build, Preview, and Deploy the Documentation</a></li>
   <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
   <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
   <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
@@ -182,6 +185,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A package for cleaning and utilizing geospatial data. Allows the use of geospatial data to help create summarizations such as distance or create rudimentary plots via the binning functionality included in the package.</p>
 <p>Functions included: - <code>LatLongDistance</code>: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates. - <code>LatLongBinning</code>: bins latitude and longitude into different groups to aid in grouping or for use in <code>PlotBinnedLatLong</code>. - <code>PlotBinnedLatLong</code>: visualizes binned geographic coordinates on a heatmap.</p>
 <p><code>LatLongDistance</code> is a common function found in many packages such as <a href="https://geopy.readthedocs.io/en/stable/">GeoPy</a> and <a href="https://pypi.org/project/haversine/">Haversine</a>. However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple <code>Pandas</code> functions to do so. We aim to create a simplification of the binning and their plot without the user’s having to rely on multiple uses and transformation on their part.</p>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
+<p>Full documentation, including API references and examples, is available at:</p>
+<p>👉 <strong>https://UBC-MDS.github.io/latlonghelper/</strong></p>
+</section>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <section id="prerequisites" class="level3">
@@ -195,33 +203,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="install-from-source-recommended">Install from source (recommended)</h3>
 <p>Clone the repository and install the package in editable mode:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/UBC-MDS/latlonghelper</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> latlonghelper</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> latlonghelper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="create-a-conda-environment" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-conda-environment">Create a conda environment</h3>
+<p>If you are using conda, you can create the development environment using:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate latlonghelper-env</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="to-run-the-tests" class="level2">
 <h2 class="anchored" data-anchor-id="to-run-the-tests">To run the tests</h2>
 <p>You can run the tests for this package using <code>pytest</code>. First, install the testing dependencies:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install <span class="at">-e.</span><span class="pp">[</span><span class="ss">test</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">".[dev]"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, run the tests with:</p>
-<pre><code>$ pytest</code></pre>
+<pre><code>pytest</code></pre>
+<p>To view the test coverage, run the following command:</p>
+<pre><code>pytest --cov=src/latlonghelper</code></pre>
 </section>
 <section id="dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
-<p>The following Python packages are required:</p>
-<ul>
-<li>pandas</li>
-<li>matplotlib</li>
-<li>seaborn</li>
-</ul>
-<p>For development and testing:</p>
-<ul>
-<li>pytest</li>
-</ul>
+<p>The following Python packages are required: Runtime dependencies: - pandas - matplotlib - seaborn</p>
+<p>Development and testing dependencies: - pytest - pytest-cov</p>
+</section>
+<section id="build-preview-and-deploy-the-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="build-preview-and-deploy-the-documentation">Build, Preview, and Deploy the Documentation</h2>
+<ol type="1">
+<li>Build and preview the documentation.</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quartodoc</span> build</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To update the documentation website.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="contributing" class="level2">
 <h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
-<p>Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.</p>
+<p>Interested in contributing? Please see the <a href="./CONTRIBUTING.html">CONTRIBUTING.md</a> file. This project is released with a <a href="./CONDUCT.html">Code of Conduct</a>, and by contributing you agree to abide by its terms.</p>
 </section>
 <section id="license" class="level2">
 <h2 class="anchored" data-anchor-id="license">License</h2>
