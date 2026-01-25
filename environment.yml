@@ -1,0 +1,22 @@
+name: latlonghelper-env
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python>=3.8
+  - pip
+
+  # package runtime deps (from pyproject.toml)
+  - pandas
+  - matplotlib
+  - seaborn
+
+  # testing (from optional-dependencies dev)
+  - pytest
+  - pytest-cov
+
+  # docs
+  - quarto
+  - pip:
+      - quartodoc

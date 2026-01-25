@@ -9,6 +9,12 @@ Functions included:
 
 `LatLongDistance` is a common function found in many packages such as [GeoPy](https://geopy.readthedocs.io/en/stable/) and [Haversine](https://pypi.org/project/haversine/). However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple `Pandas` functions to do so. We aim to create a simplification of the binning and their plot without the user's having to rely on multiple uses and transformation on their part.
 
+## Documentation
+
+Full documentation, including API references and examples, is available at:
+
+👉 **https://UBC-MDS.github.io/latlonghelper/**
+
 ## Installation
 
 ### Prerequisites
@@ -22,6 +28,15 @@ Clone the repository and install the package in editable mode:
 ```bash
 git clone https://github.com/UBC-MDS/latlonghelper
 cd latlonghelper
+```
+
+### Create a conda environment
+
+If you are using conda, you can create the development environment using:
+
+```bash
+conda env create -f environment.yml
+conda activate latlonghelper-env
 pip install -e .
 ```
 
@@ -30,29 +45,46 @@ pip install -e .
 You can run the tests for this package using `pytest`. First, install the testing dependencies:
 
 ```bash
-$ pip install -e.[test]
+pip install -e ".[dev]"
 ```
 
 Then, run the tests with:
 ```
-$ pytest
+pytest
 ```
+To view the test coverage, run the following command:
+```
+pytest --cov=src/latlonghelper
+```
+
 
 ## Dependencies
 
 The following Python packages are required:
-
+Runtime dependencies:
 - pandas
 - matplotlib
 - seaborn
 
-For development and testing:
-
+Development and testing dependencies:
 - pytest
+- pytest-cov
+
+## Build, Preview, and Deploy the Documentation
+1. Build and preview the documentation.
+```bash
+quartodoc build
+quarto preview
+```
+To update the documentation website.
+```bash
+quarto publish gh-pages
+```
 
 ## Contributing
 
-Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+Interested in contributing? Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+This project is released with a [Code of Conduct](CONDUCT.md), and by contributing you agree to abide by its terms.
 
 ## License
 
