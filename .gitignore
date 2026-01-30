@@ -6,3 +6,5 @@ __pycache__/
 .quarto/
 objects.json
 /.quarto/
+
+**/*.quarto_ipynb
