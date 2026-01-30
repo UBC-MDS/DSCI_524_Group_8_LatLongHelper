@@ -237,78 +237,78 @@
     "text": "latlonghelper was created with cookiecutter and the py-pkgs-cookiecutter template."
   },
   {
-    "objectID": "tutorial.html",
-    "href": "tutorial.html",
+    "objectID": "tutorial/tutorial.html",
+    "href": "tutorial/tutorial.html",
     "title": "Tutorial",
     "section": "",
     "text": "This tutorial demonstrates how to use the three functions provided by LatLongHelper:\n\nLatLongBinning() — bins latitude and longitude into grid cells\n\nLatLongDistance() — calculates great-circle distance (km)\n\nPlotBinnedLatLong() — visualizes spatial density as a heatmap\n\n\n\n\nfrom latlonghelper.lat_long_binning import LatLongBinning\nfrom latlonghelper.lat_long_distance import LatLongDistance\nfrom latlonghelper.plot_binned_lat_long import PlotBinnedLatLong\n\n\n\n\n\nimport pandas as pd\n\npoints = pd.DataFrame(\n    {\n        \"name\": [\n            \"UBC\",\n            \"UBC Library\",\n            \"Downtown Vancouver\",\n            \"Kitsilano\",\n            \"Burnaby\",\n            \"Richmond\",\n            \"North Vancouver\",\n            \"Surrey\",\n            \"New Westminster\",\n            \"Coquitlam\",\n            \"Port Moody\"\n        ],\n        \"latitude\": [\n            49.2606, \n            49.2620,  \n            49.2827,\n            49.2685,\n            49.2488,\n            49.1666,\n            49.3200,\n            49.1044,\n            49.2057,\n            49.2838,\n            49.2850\n        ],\n        \"longitude\": [\n            -123.2460, \n            -123.2480,\n            -123.1207,\n            -123.1686,\n            -122.9805,\n            -123.1336,\n            -123.0720,\n            -122.8011,\n            -122.9110,\n            -122.7932,\n            -122.8326\n        ]\n    }\n)\n\npoints"
   },
   {
-    "objectID": "tutorial.html#import-functions",
-    "href": "tutorial.html#import-functions",
+    "objectID": "tutorial/tutorial.html#import-functions",
+    "href": "tutorial/tutorial.html#import-functions",
     "title": "Tutorial",
     "section": "",
     "text": "from latlonghelper.lat_long_binning import LatLongBinning\nfrom latlonghelper.lat_long_distance import LatLongDistance\nfrom latlonghelper.plot_binned_lat_long import PlotBinnedLatLong"
   },
   {
-    "objectID": "tutorial.html#sample-dataset-vancouver-ubc",
-    "href": "tutorial.html#sample-dataset-vancouver-ubc",
+    "objectID": "tutorial/tutorial.html#sample-dataset-vancouver-ubc",
+    "href": "tutorial/tutorial.html#sample-dataset-vancouver-ubc",
     "title": "Tutorial",
     "section": "",
     "text": "import pandas as pd\n\npoints = pd.DataFrame(\n    {\n        \"name\": [\n            \"UBC\",\n            \"UBC Library\",\n            \"Downtown Vancouver\",\n            \"Kitsilano\",\n            \"Burnaby\",\n            \"Richmond\",\n            \"North Vancouver\",\n            \"Surrey\",\n            \"New Westminster\",\n            \"Coquitlam\",\n            \"Port Moody\"\n        ],\n        \"latitude\": [\n            49.2606, \n            49.2620,  \n            49.2827,\n            49.2685,\n            49.2488,\n            49.1666,\n            49.3200,\n            49.1044,\n            49.2057,\n            49.2838,\n            49.2850\n        ],\n        \"longitude\": [\n            -123.2460, \n            -123.2480,\n            -123.1207,\n            -123.1686,\n            -122.9805,\n            -123.1336,\n            -123.0720,\n            -122.8011,\n            -122.9110,\n            -122.7932,\n            -122.8326\n        ]\n    }\n)\n\npoints"
   },
   {
-    "objectID": "tutorial.html#example-a-bin-a-single-coordinate",
-    "href": "tutorial.html#example-a-bin-a-single-coordinate",
+    "objectID": "tutorial/tutorial.html#example-a-bin-a-single-coordinate",
+    "href": "tutorial/tutorial.html#example-a-bin-a-single-coordinate",
     "title": "Tutorial",
     "section": "Example A: Bin a single coordinate",
     "text": "Example A: Bin a single coordinate\n\nLatLongBinning(49.2593, -123.2475)\n\nWhat it does: LatLongBinning bins latitude and longitude into grid cells with the default size of 0.1° grid"
   },
   {
-    "objectID": "tutorial.html#example-b-bin-all-points-default-grid-size",
-    "href": "tutorial.html#example-b-bin-all-points-default-grid-size",
+    "objectID": "tutorial/tutorial.html#example-b-bin-all-points-default-grid-size",
+    "href": "tutorial/tutorial.html#example-b-bin-all-points-default-grid-size",
     "title": "Tutorial",
     "section": "Example B: Bin all points (default grid size)",
     "text": "Example B: Bin all points (default grid size)\n\nbins_default = []\n\nfor i in range(len(points)):\n    lat = points.loc[i, \"latitude\"]\n    lon = points.loc[i, \"longitude\"]\n    bins_default.append(LatLongBinning(lat, lon))\n\npoints[\"bin_default\"] = bins_default\npoints[[\"name\", \"bin_default\"]]\n\nWhat it does: LatLongBinning bins all latitude and longitude points into grid cells with the default size of 0.1° grid"
   },
   {
-    "objectID": "tutorial.html#example-c-bin-all-points-using-a-0.05-grid",
-    "href": "tutorial.html#example-c-bin-all-points-using-a-0.05-grid",
+    "objectID": "tutorial/tutorial.html#example-c-bin-all-points-using-a-0.05-grid",
+    "href": "tutorial/tutorial.html#example-c-bin-all-points-using-a-0.05-grid",
     "title": "Tutorial",
     "section": "Example C: Bin all points using a 0.05° grid",
     "text": "Example C: Bin all points using a 0.05° grid\n\nbins_005 = []\n\nfor i in range(len(points)):\n    lat = points.loc[i, \"latitude\"]\n    lon = points.loc[i, \"longitude\"]\n    bins_005.append(\n        LatLongBinning(lat, lon, grid_size_latitude=0.05, grid_size_longitude=0.05)\n    )\n\npoints[\"bin_005\"] = bins_005\npoints[[\"name\", \"bin_005\"]]\n\nWhat it does: LatLongBinning bins all latitude and longitude points into grid cells with the grid size of 0.05° as defined in the function"
   },
   {
-    "objectID": "tutorial.html#example-a-distance-from-ubc-to-downtown-vancouver",
-    "href": "tutorial.html#example-a-distance-from-ubc-to-downtown-vancouver",
+    "objectID": "tutorial/tutorial.html#example-a-distance-from-ubc-to-downtown-vancouver",
+    "href": "tutorial/tutorial.html#example-a-distance-from-ubc-to-downtown-vancouver",
     "title": "Tutorial",
     "section": "Example A: Distance from UBC to Downtown Vancouver",
     "text": "Example A: Distance from UBC to Downtown Vancouver\n\nubc = points[points[\"name\"] == \"UBC\"].iloc[0]\ndt = points[points[\"name\"] == \"Downtown Vancouver\"].iloc[0]\n\nLatLongDistance(\n    ubc[\"latitude\"], ubc[\"longitude\"],\n    dt[\"latitude\"], dt[\"longitude\"]\n)\n\nWhat it does: LatLongDistance calculates the distance between UBC and Downtown Vancouver in kilometers."
   },
   {
-    "objectID": "tutorial.html#example-b-distance-from-ubc-to-all-locations",
-    "href": "tutorial.html#example-b-distance-from-ubc-to-all-locations",
+    "objectID": "tutorial/tutorial.html#example-b-distance-from-ubc-to-all-locations",
+    "href": "tutorial/tutorial.html#example-b-distance-from-ubc-to-all-locations",
     "title": "Tutorial",
     "section": "Example B: Distance from UBC to all locations",
     "text": "Example B: Distance from UBC to all locations\n\ndistances = []\n\nfor i in range(len(points)):\n    lat = points.loc[i, \"latitude\"]\n    lon = points.loc[i, \"longitude\"]\n    distances.append(\n        LatLongDistance(ubc[\"latitude\"], ubc[\"longitude\"], lat, lon)\n    )\n\npoints[\"distance_from_ubc_km\"] = distances\npoints[[\"name\", \"distance_from_ubc_km\"]].sort_values(\"distance_from_ubc_km\")\n\nWhat it does: LatLongDistance calculates distances between UBC and all locations in kilometers."
   },
   {
-    "objectID": "tutorial.html#example-plot-heatmap-using-0.05-bins",
-    "href": "tutorial.html#example-plot-heatmap-using-0.05-bins",
+    "objectID": "tutorial/tutorial.html#example-plot-heatmap-using-0.05-bins",
+    "href": "tutorial/tutorial.html#example-plot-heatmap-using-0.05-bins",
     "title": "Tutorial",
     "section": "Example: Plot heatmap using 0.05° bins",
     "text": "Example: Plot heatmap using 0.05° bins\n\nimport matplotlib.pyplot as plt\n\nbinned_list = points[\"bin_005\"].tolist()\n\nax = PlotBinnedLatLong(binned_list, width=10, height=6)\nplt.show()\n\nWhat it does: PlotBinnedLatLong visualizes the frequency of binned latitude–longitude coordinates using a heatmap. The output should look like this figure."
   },
   {
-    "objectID": "tutorial.html#notes",
-    "href": "tutorial.html#notes",
+    "objectID": "tutorial/tutorial.html#notes",
+    "href": "tutorial/tutorial.html#notes",
     "title": "Tutorial",
     "section": "Notes",
     "text": "Notes\n\nLatitude must be between −90 and 90\nLongitude must be between −180 and 180\nGrid sizes must be greater than 0\nCoarser grids produce clearer heatmaps for small datasets"
   },
   {
-    "objectID": "tutorial.html#reference",
-    "href": "tutorial.html#reference",
+    "objectID": "tutorial/tutorial.html#reference",
+    "href": "tutorial/tutorial.html#reference",
     "title": "Tutorial",
     "section": "Reference",
     "text": "Reference\n\nFor more details on all functions, see the API Reference.\nView or contribute to the project on GitHub."

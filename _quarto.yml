@@ -13,7 +13,7 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Tutorial"
-        href: tutorial.qmd
+        href: tutorial/tutorial.qmd
       - text: "Reference"
         href: reference/index.qmd
     right:
