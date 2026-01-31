@@ -1,7 +1,11 @@
-# lat_long_distance.lat_long_distance { #latlonghelper.lat_long_distance.lat_long_distance }
+---
+title: "LatLongDistance"
+---
+
+# lat_long_distance.LatLongDistance { #latlonghelper.lat_long_distance.LatLongDistance }
 
 ```python
-lat_long_distance.lat_long_distance(
+lat_long_distance.LatLongDistance(
     latitude_1,
     longitude_1,
     latitude_2,
@@ -35,13 +39,10 @@ and longitude, rather than assuming a flat surface.
 
 ## Raises {.doc-section .doc-section-raises}
 
-| Name   | Type       | Description                                                                   |
-|--------|------------|-------------------------------------------------------------------------------|
-|        | ValueError | If any latitude is outside [-90, 90] or any longitude is outside [-180, 180]. |
+- **ValueError**: If any latitude is outside [-90, 90] or any longitude is outside [-180, 180].
 
-## Examples {.doc-section .doc-section-examples}
-
+## Example {.doc-section .doc-section-example}
 ```python
->>> lat_long_distance(40.7128, -74.0060, 34.0522, -118.2437)
+>>> LatLongDistance(40.7128, -74.0060, 34.0522, -118.2437)
 3935.75
 ```

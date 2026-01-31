@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>lat_long_binning.lat_long_binning – LatLongHelper Documentation</title>
+<title>LatLongBinning – LatLongHelper Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/lat_long_binning.lat_long_binning.html">Available Functions</a></li><li class="breadcrumb-item"><a href="../reference/lat_long_binning.lat_long_binning.html">lat_long_binning.lat_long_binning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/lat_long_binning.LatLongBinning.html">Available Functions</a></li><li class="breadcrumb-item"><a href="../reference/lat_long_binning.LatLongBinning.html">LatLongBinning</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -182,20 +182,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/lat_long_binning.lat_long_binning.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">lat_long_binning.lat_long_binning</span></a>
+  <a href="../reference/lat_long_binning.LatLongBinning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">LatLongBinning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/lat_long_distance.lat_long_distance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">lat_long_distance.lat_long_distance</span></a>
+  <a href="../reference/lat_long_distance.LatLongDistance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LatLongDistance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/plot_binned_lat_long.plot_binned_lat_long.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">plot_binned_lat_long.plot_binned_lat_long</span></a>
+  <a href="../reference/plot_binned_lat_long.PlotBinnedLatLong.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PlotBinnedLatLong</span></a>
   </div>
 </li>
       </ul>
@@ -210,25 +210,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#latlonghelper.lat_long_binning.lat_long_binning" id="toc-latlonghelper.lat_long_binning.lat_long_binning" class="nav-link active" data-scroll-target="#latlonghelper.lat_long_binning.lat_long_binning">lat_long_binning.lat_long_binning</a>
+  <li><a href="#latlonghelper.lat_long_binning.LatLongBinning" id="toc-latlonghelper.lat_long_binning.LatLongBinning" class="nav-link active" data-scroll-target="#latlonghelper.lat_long_binning.LatLongBinning">lat_long_binning.LatLongBinning</a>
   <ul class="collapse">
   <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
   <li><a href="#returns" id="toc-returns" class="nav-link" data-scroll-target="#returns">Returns</a></li>
   <li><a href="#raises" id="toc-raises" class="nav-link" data-scroll-target="#raises">Raises</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/lat_long_binning.lat_long_binning.html">Available Functions</a></li><li class="breadcrumb-item"><a href="../reference/lat_long_binning.lat_long_binning.html">lat_long_binning.lat_long_binning</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/lat_long_binning.LatLongBinning.html">Available Functions</a></li><li class="breadcrumb-item"><a href="../reference/lat_long_binning.LatLongBinning.html">LatLongBinning</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">LatLongBinning</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="latlonghelper.lat_long_binning.lat_long_binning" class="level1">
-<h1>lat_long_binning.lat_long_binning</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lat_long_binning.lat_long_binning(</span>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="latlonghelper.lat_long_binning.LatLongBinning" class="level1">
+<h1>lat_long_binning.LatLongBinning</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lat_long_binning.LatLongBinning(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    latitude,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    longitude,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    grid_size_latitude<span class="op">=</span><span class="fl">0.01</span>,</span>
@@ -306,36 +322,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="raises" class="level2 doc-section doc-section-raises">
 <h2 class="doc-section doc-section-raises anchored" data-anchor-id="raises">Raises</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 86%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td>TypeError</td>
-<td>If <code>latitude</code>, <code>longitude</code>, <code>grid_size_latitude</code>, or <code>grid_size_longitude</code> are not numeric.</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>ValueError</td>
-<td>If <code>latitude</code> is outside [-90, 90], <code>longitude</code> is outside [-180, 180], or if either grid size is less than or equal to 0.</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><strong>TypeError</strong>: If <code>latitude</code>, <code>longitude</code>, <code>grid_size_latitude</code>, or <code>grid_size_longitude</code> are not numeric.</li>
+<li><strong>ValueError</strong>: If <code>latitude</code> is outside [-90, 90], <code>longitude</code> is outside [-180, 180], or if either grid size is less than or equal to 0.</li>
+</ul>
 </section>
-<section id="examples" class="level2 doc-section doc-section-examples">
-<h2 class="doc-section doc-section-examples anchored" data-anchor-id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> lat_long_binning(<span class="fl">49.2593</span>, <span class="op">-</span><span class="fl">123.2475</span>)</span>
+<section id="example" class="level2 doc-section doc-section-example">
+<h2 class="doc-section doc-section-example anchored" data-anchor-id="example">Example</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> LatLongBinning(<span class="fl">49.2593</span>, <span class="op">-</span><span class="fl">123.2475</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">'49.25_-123.25'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 

@@ -1,7 +1,11 @@
-# lat_long_binning.lat_long_binning { #latlonghelper.lat_long_binning.lat_long_binning }
+---
+title: "LatLongBinning"
+---
+
+# lat_long_binning.LatLongBinning { #latlonghelper.lat_long_binning.LatLongBinning }
 
 ```python
-lat_long_binning.lat_long_binning(
+lat_long_binning.LatLongBinning(
     latitude,
     longitude,
     grid_size_latitude=0.01,
@@ -28,14 +32,13 @@ A function that is used to bin latitude and longitude into different groups
 
 ## Raises {.doc-section .doc-section-raises}
 
-| Name   | Type       | Description                                                                                                                |
-|--------|------------|----------------------------------------------------------------------------------------------------------------------------|
-|        | TypeError  | If `latitude`, `longitude`, `grid_size_latitude`, or `grid_size_longitude` are not numeric.                                |
-|        | ValueError | If `latitude` is outside [-90, 90], `longitude` is outside [-180, 180], or if either grid size is less than or equal to 0. |
+- **TypeError**: If `latitude`, `longitude`, `grid_size_latitude`, or
+  `grid_size_longitude` are not numeric.
+- **ValueError**: If `latitude` is outside [-90, 90], `longitude` is
+  outside [-180, 180], or if either grid size is less than or equal to 0.
 
-## Examples {.doc-section .doc-section-examples}
-
+## Example {.doc-section .doc-section-example}
 ```python
->>> lat_long_binning(49.2593, -123.2475)
+>>> LatLongBinning(49.2593, -123.2475)
 '49.25_-123.25'
 ```

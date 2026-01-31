@@ -192,11 +192,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A package for cleaning and utilizing geospatial data. Allows the use of geospatial data to help create summarizations such as distance calculations or rudimentary visualizations via latitude–longitude binning.</p>
 <p>Functions included:</p>
 <ul>
-<li><code>lat_long_distance</code>: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates.</li>
-<li><code>lat_long_binning</code>: bins latitude and longitude into different groups to aid in grouping or for use in <code>plot_binned_lat_long</code>.</li>
-<li><code>plot_binned_lat_long</code>: visualizes binned geographic coordinates on a heatmap.</li>
+<li><code>LatLongDistance</code>: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates.</li>
+<li><code>LatLongBinning</code>: bins latitude and longitude into different groups to aid in grouping or for use in <code>PlotBinnedLatLong</code>.</li>
+<li><code>PlotBinnedLatLong</code>: visualizes binned geographic coordinates on a heatmap.</li>
 </ul>
-<p><code>lat_long_distance</code> is a common function found in many packages such as <a href="https://geopy.readthedocs.io/en/stable/">GeoPy</a> and <a href="https://pypi.org/project/haversine/">Haversine</a>. However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple <code>Pandas</code> functions to do so. We aim to create a simplification of the binning and their plot without the user’s having to rely on multiple uses and transformation on their part.</p>
+<p><code>LatLongDistance</code> is a common function found in many packages such as <a href="https://geopy.readthedocs.io/en/stable/">GeoPy</a> and <a href="https://pypi.org/project/haversine/">Haversine</a>. However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple <code>Pandas</code> functions to do so. We aim to create a simplification of the binning and their plot without the user’s having to rely on multiple uses and transformation on their part.</p>
 <section id="what-does-binning-latitude-and-longitude-mean" class="level2">
 <h2 class="anchored" data-anchor-id="what-does-binning-latitude-and-longitude-mean">What does “binning” latitude and longitude mean?</h2>
 <p>Binning latitude and longitude refers to <strong>grouping nearby geographic points into fixed-size grid cells</strong>.</p>
@@ -210,13 +210,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example-output" class="level2">
 <h2 class="anchored" data-anchor-id="example-output">Example output</h2>
-<p>Below is an example heatmap produced by <code>plot_binned_lat_long</code>, showing the spatial density of binned latitude–longitude points. <img src="images/Figure_1.png" class="img-fluid"></p>
+<p>Below is an example heatmap produced by <code>PlotBinnedLatLong</code>, showing the spatial density of binned latitude–longitude points. <img src="images/Figure_1.png" class="img-fluid"></p>
 </section>
 <section id="usage-example" class="level2">
 <h2 class="anchored" data-anchor-id="usage-example">Usage example</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_binning <span class="im">import</span> lat_long_binning</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_distance <span class="im">import</span> lat_long_distance</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.plot_binned_lat_long <span class="im">import</span> plot_binned_lat_long</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_binning <span class="im">import</span> LatLongBinning</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_distance <span class="im">import</span> LatLongDistance</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.plot_binned_lat_long <span class="im">import</span> PlotBinnedLatLong</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Example coordinates (Vancouver area)</span></span>
@@ -226,14 +226,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin coordinates</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>binned <span class="op">=</span> []</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lat, lon <span class="kw">in</span> <span class="bu">zip</span>(latitudes, longitudes):</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    binned.append(lat_long_binning(lat, lon, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    binned.append(LatLongBinning(lat, lon, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plot_binned_lat_long(binned)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> PlotBinnedLatLong(binned)</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance example</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> lat_long_distance(<span class="fl">49.2606</span>, <span class="op">-</span><span class="fl">123.2460</span>, <span class="fl">49.2827</span>, <span class="op">-</span><span class="fl">123.1207</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> LatLongDistance(<span class="fl">49.2606</span>, <span class="op">-</span><span class="fl">123.2460</span>, <span class="fl">49.2827</span>, <span class="op">-</span><span class="fl">123.1207</span>)</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(distance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>More detailed examples and tutorials are available on the documentation website.</p>
 </section>

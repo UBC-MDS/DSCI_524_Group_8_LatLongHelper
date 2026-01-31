@@ -69,6 +69,3 @@ dev = [
   "pytest",
   "pytest-cov"
 ]
-
-[tool.pytest.ini_options]
-addopts = "-p no:randomly"

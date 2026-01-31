@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>plot_binned_lat_long.plot_binned_lat_long – LatLongHelper Documentation</title>
+<title>LatLongDistance – LatLongHelper Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/lat_long_binning.lat_long_binning.html">Available Functions</a></li><li class="breadcrumb-item"><a href="../reference/plot_binned_lat_long.plot_binned_lat_long.html">plot_binned_lat_long.plot_binned_lat_long</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/lat_long_binning.LatLongBinning.html">Available Functions</a></li><li class="breadcrumb-item"><a href="../reference/lat_long_distance.LatLongDistance.html">LatLongDistance</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -182,20 +182,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/lat_long_binning.lat_long_binning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">lat_long_binning.lat_long_binning</span></a>
+  <a href="../reference/lat_long_binning.LatLongBinning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LatLongBinning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/lat_long_distance.lat_long_distance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">lat_long_distance.lat_long_distance</span></a>
+  <a href="../reference/lat_long_distance.LatLongDistance.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">LatLongDistance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/plot_binned_lat_long.plot_binned_lat_long.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">plot_binned_lat_long.plot_binned_lat_long</span></a>
+  <a href="../reference/plot_binned_lat_long.PlotBinnedLatLong.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PlotBinnedLatLong</span></a>
   </div>
 </li>
       </ul>
@@ -210,34 +210,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#latlonghelper.plot_binned_lat_long.plot_binned_lat_long" id="toc-latlonghelper.plot_binned_lat_long.plot_binned_lat_long" class="nav-link active" data-scroll-target="#latlonghelper.plot_binned_lat_long.plot_binned_lat_long">plot_binned_lat_long.plot_binned_lat_long</a>
+  <li><a href="#latlonghelper.lat_long_distance.LatLongDistance" id="toc-latlonghelper.lat_long_distance.LatLongDistance" class="nav-link active" data-scroll-target="#latlonghelper.lat_long_distance.LatLongDistance">lat_long_distance.LatLongDistance</a>
   <ul class="collapse">
   <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
   <li><a href="#returns" id="toc-returns" class="nav-link" data-scroll-target="#returns">Returns</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#raises" id="toc-raises" class="nav-link" data-scroll-target="#raises">Raises</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/lat_long_binning.lat_long_binning.html">Available Functions</a></li><li class="breadcrumb-item"><a href="../reference/plot_binned_lat_long.plot_binned_lat_long.html">plot_binned_lat_long.plot_binned_lat_long</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/lat_long_binning.LatLongBinning.html">Available Functions</a></li><li class="breadcrumb-item"><a href="../reference/lat_long_distance.LatLongDistance.html">LatLongDistance</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">LatLongDistance</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="latlonghelper.plot_binned_lat_long.plot_binned_lat_long" class="level1">
-<h1>plot_binned_lat_long.plot_binned_lat_long</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>plot_binned_lat_long.plot_binned_lat_long(binned_data, width<span class="op">=</span><span class="dv">10</span>, height<span class="op">=</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Visualize binned geographic coordinates on a heatmap.</p>
-<p>This function takes the output of <code>lat_long_binning</code> and visualizes the spatial density of points using a heatmap, where each cell represents a latitude–longitude bin and the color intensity indicates the number of observations in that bin.</p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="latlonghelper.lat_long_distance.LatLongDistance" class="level1">
+<h1>lat_long_distance.LatLongDistance</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lat_long_distance.LatLongDistance(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    latitude_1,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    longitude_1,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    latitude_2,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    longitude_2,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A function that calculates the distance between two geographic points given their latitude and longitude coordinates.</p>
+<p>Addendum: The use of the Haversine formula for distance calculation was suggested by ChatGPT. The Haversine formula was chosen because it accounts for the curvature of the Earth, providing an accurate “great-circle” distance between two points given their latitude and longitude, rather than assuming a flat surface.</p>
 <section id="parameters" class="level2 doc-section doc-section-parameters">
 <h2 class="doc-section doc-section-parameters anchored" data-anchor-id="parameters">Parameters</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 9%">
-<col style="width: 76%">
-<col style="width: 6%">
+<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 62%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -249,22 +271,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>binned_data</td>
-<td>iterable of str</td>
-<td>Binned geographic coordinates formatted as “<latitude><em><longitude>”, for example ”49.25</longitude></em>-123.25”. Each element represents one observation.</latitude></td>
+<td>latitude_1</td>
+<td>float</td>
+<td>Latitude of the first point in degrees (-90 to 90)</td>
 <td><em>required</em></td>
 </tr>
 <tr class="even">
-<td>width</td>
-<td>int</td>
-<td>Width of the figure in inches (default is 10).</td>
-<td><code>10</code></td>
+<td>longitude_1</td>
+<td>float</td>
+<td>Longitude of the first point in degrees (-180 to 180)</td>
+<td><em>required</em></td>
 </tr>
 <tr class="odd">
-<td>height</td>
-<td>int</td>
-<td>Height of the figure in inches (default is 6).</td>
-<td><code>6</code></td>
+<td>latitude_2</td>
+<td>float</td>
+<td>Latitude of the second point in degrees (-90 to 90)</td>
+<td><em>required</em></td>
+</tr>
+<tr class="even">
+<td>longitude_2</td>
+<td>float</td>
+<td>Longitude of the second point in degrees (-180 to 180)</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -272,11 +300,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="returns" class="level2 doc-section doc-section-returns">
 <h2 class="doc-section doc-section-returns anchored" data-anchor-id="returns">Returns</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 9%">
-<col style="width: 26%">
-<col style="width: 63%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
@@ -286,17 +309,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td>matplotlib.axes.Axes</td>
-<td>The Matplotlib Axes object containing the heatmap.</td>
+<td>distance</td>
+<td>float</td>
+<td>Distance between the two points (in kilometers)</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="examples" class="level2 doc-section doc-section-examples">
-<h2 class="doc-section doc-section-examples anchored" data-anchor-id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> ax <span class="op">=</span> plot_binned_lat_long(binned_data)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="raises" class="level2 doc-section doc-section-raises">
+<h2 class="doc-section doc-section-raises anchored" data-anchor-id="raises">Raises</h2>
+<ul>
+<li><strong>ValueError</strong>: If any latitude is outside [-90, 90] or any longitude is outside [-180, 180].</li>
+</ul>
+</section>
+<section id="example" class="level2 doc-section doc-section-example">
+<h2 class="doc-section doc-section-example anchored" data-anchor-id="example">Example</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> LatLongDistance(<span class="fl">40.7128</span>, <span class="op">-</span><span class="fl">74.0060</span>, <span class="fl">34.0522</span>, <span class="op">-</span><span class="fl">118.2437</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fl">3935.75</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

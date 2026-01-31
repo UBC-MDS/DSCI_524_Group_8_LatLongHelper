@@ -1,15 +1,19 @@
-# plot_binned_lat_long.plot_binned_lat_long { #latlonghelper.plot_binned_lat_long.plot_binned_lat_long }
+---
+title: "PlotBinnedLatLong"
+---
+
+# plot_binned_lat_long.PlotBinnedLatLong { #latlonghelper.plot_binned_lat_long.PlotBinnedLatLong }
 
 ```python
-plot_binned_lat_long.plot_binned_lat_long(binned_data, width=10, height=6)
+plot_binned_lat_long.PlotBinnedLatLong(binned_data, width=10, height=6)
 ```
 
-Visualize binned geographic coordinates on a heatmap.
+Visualizes binned geographic coordinates on a heatmap.
 
-This function takes the output of `lat_long_binning` and visualizes the
-spatial density of points using a heatmap, where each cell represents a
-latitude–longitude bin and the color intensity indicates the number of
-observations in that bin.
+This function takes the output of `LatLongBinning` and visualizes the spatial
+density of points using a heatmap, where each cell represents a latitude–
+longitude bin and the color intensity indicates the number of observations
+in that bin.
 
 ## Parameters {.doc-section .doc-section-parameters}
 
@@ -21,13 +25,12 @@ observations in that bin.
 
 ## Returns {.doc-section .doc-section-returns}
 
-| Name   | Type                 | Description                                        |
-|--------|----------------------|----------------------------------------------------|
-|        | matplotlib.axes.Axes | The Matplotlib Axes object containing the heatmap. |
+| Name   | Type                 | Description                          |
+|--------|----------------------|--------------------------------------|
+|        | matplotlib.axes.Axes | Returns the plot object for display. |
 
-## Examples {.doc-section .doc-section-examples}
-
+## Example {.doc-section .doc-section-example}
 ```python
->>> ax = plot_binned_lat_long(binned_data)
+>>> fig = PlotBinnedLatLong(binned_data)
 >>> plt.show()
 ```
