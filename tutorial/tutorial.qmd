@@ -161,7 +161,7 @@ ax = plot_binned_lat_long(binned_list, width=10, height=6)
 plt.show()
 ```
 
-![](images/Figure_1.png)
+![](../images/Figure_1.png)
 
 # End-to-end workflow
 

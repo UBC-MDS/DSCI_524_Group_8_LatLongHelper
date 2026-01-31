@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="import-functions" class="level2">
 <h2 class="anchored" data-anchor-id="import-functions">Import functions</h2>
-<div id="0055e028" class="cell">
+<div id="cfc7ce48" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_binning <span class="im">import</span> lat_long_binning</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_distance <span class="im">import</span> lat_long_distance</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.plot_binned_lat_long <span class="im">import</span> plot_binned_lat_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -221,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sample-dataset-vancouver-ubc" class="level2">
 <h2 class="anchored" data-anchor-id="sample-dataset-vancouver-ubc">Sample dataset (Vancouver / UBC)</h2>
-<div id="8e235d65" class="cell">
+<div id="8ad56f12" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> pd.DataFrame(</span>
@@ -277,13 +277,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>lat_long_binning(latitude, longitude)</code> assigns each coordinate to a latitude–longitude grid cell.</p>
 <section id="example-a-bin-a-single-coordinate" class="level2">
 <h2 class="anchored" data-anchor-id="example-a-bin-a-single-coordinate">Example A: Bin a single coordinate</h2>
-<div id="65fc6588" class="cell">
+<div id="f57f4b19" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lat_long_binning(<span class="fl">49.2593</span>, <span class="op">-</span><span class="fl">123.2475</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="example-b-bin-all-points-default-grid-size" class="level2">
 <h2 class="anchored" data-anchor-id="example-b-bin-all-points-default-grid-size">Example B: Bin all points (default grid size)</h2>
-<div id="3fe79581" class="cell">
+<div id="c9e21cf6" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bins_default <span class="op">=</span> []</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
@@ -297,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example-c-bin-all-points-using-a-0.05-grid" class="level2">
 <h2 class="anchored" data-anchor-id="example-c-bin-all-points-using-a-0.05-grid">Example C: Bin all points using a 0.05° grid</h2>
-<div id="53eb38d1" class="cell">
+<div id="f3594bac" class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bins_005 <span class="op">=</span> []</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>lat_long_distance(lat1, lon1, lat2, lon2)</code> returns the distance in kilometers.</p>
 <section id="example-a-distance-from-ubc-to-downtown-vancouver" class="level2">
 <h2 class="anchored" data-anchor-id="example-a-distance-from-ubc-to-downtown-vancouver">Example A: Distance from UBC to Downtown Vancouver</h2>
-<div id="66191a4e" class="cell">
+<div id="9de220b8" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ubc <span class="op">=</span> points[points[<span class="st">"name"</span>] <span class="op">==</span> <span class="st">"UBC"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> points[points[<span class="st">"name"</span>] <span class="op">==</span> <span class="st">"Downtown Vancouver"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -329,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example-b-distance-from-ubc-to-all-locations" class="level2">
 <h2 class="anchored" data-anchor-id="example-b-distance-from-ubc-to-all-locations">Example B: Distance from UBC to all locations</h2>
-<div id="0b5bf221" class="cell">
+<div id="e85b1778" class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
@@ -346,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="visualizing-binned-data-with-plot_binned_lat_long" class="level1">
 <h1>3. Visualizing binned data with <code>plot_binned_lat_long</code></h1>
-<div id="a8b74922" class="cell">
+<div id="6a6bb0e9" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>binned_list <span class="op">=</span> points[<span class="st">"bin_005"</span>].tolist()</span>
@@ -354,11 +354,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plot_binned_lat_long(binned_list, width<span class="op">=</span><span class="dv">10</span>, height<span class="op">=</span><span class="dv">6</span>)</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/Figure_1.png" class="img-fluid"></p>
+<p><img src="../images/Figure_1.png" class="img-fluid"></p>
 </section>
 <section id="end-to-end-workflow" class="level1">
 <h1>End-to-end workflow</h1>
-<div id="5ac466f6" class="cell">
+<div id="39f33775" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> []</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
@@ -368,11 +368,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>] <span class="op">=</span> bins</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="707e4697" class="cell">
+<div id="aab50845" class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plot_binned_lat_long(points[<span class="st">"bin"</span>].tolist())</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a8284672" class="cell">
+<div id="09aa951c" class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
@@ -1004,7 +1004,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Figure_1.png)</span></span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/Figure_1.png)</span></span>
 <span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="fu"># End-to-end workflow</span></span>
 <span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a></span>
