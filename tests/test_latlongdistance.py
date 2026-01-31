@@ -54,6 +54,16 @@ def test_lat_long_distance_out_of_range(lat1, lon1, lat2, lon2):
     with pytest.raises(ValueError, match="must be between"):
         lat_long_distance(lat1, lon1, lat2, lon2)
 
+@pytest.mark.parametrize(
+    "lat1, lon1, lat2, lon2",
+    [
+        (0, 0, -91, 0),   # latitude_2 too low
+        (0, 0, 91, 0),    # latitude_2 too high
+    ]
+)
+def test_lat_long_distance_lat2_out_of_range(lat1, lon1, lat2, lon2):
+    with pytest.raises(ValueError, match="must be between"):
+        lat_long_distance(lat1, lon1, lat2, lon2)
 
 # -----------------------------
 # Type errors

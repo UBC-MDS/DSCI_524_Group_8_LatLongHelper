@@ -74,3 +74,15 @@ def test_latlongbinning_type_errors():
     """
     with pytest.raises(TypeError, match="must be numeric"):
         lat_long_binning("49", -123.0)  # type: ignore
+        
+@pytest.mark.parametrize(
+    "latitude, longitude, grid_lat, grid_lon",
+    [
+        (49.0, "not_a_number", 0.01, 0.01),   # longitude type error
+        (49.0, -123.0, "0.01", 0.01),         # grid_size_latitude type error
+        (49.0, -123.0, 0.01, "0.01"),         # grid_size_longitude type error
+    ]
+)
+def test_lat_long_binning_more_type_errors(latitude, longitude, grid_lat, grid_lon):
+    with pytest.raises(TypeError, match="must be numeric"):
+        lat_long_binning(latitude, longitude, grid_lat, grid_lon)
