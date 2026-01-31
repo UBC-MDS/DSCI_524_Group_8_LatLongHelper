@@ -14,16 +14,16 @@ execute:
 
 This tutorial demonstrates how to use the three functions provided by **LatLongHelper**:
 
--   `LatLongBinning()` — bins latitude and longitude into grid cells\
--   `LatLongDistance()` — calculates great-circle distance (km)\
--   `PlotBinnedLatLong()` — visualizes spatial density as a heatmap
+-   `lat_long_binning()` — bins latitude and longitude into grid cells\
+-   `lat_long_distance()` — calculates great-circle distance (km)\
+-   `plot_binned_lat_long()` — visualizes spatial density as a heatmap
 
 ## Import functions
 
 ```{python}
-from latlonghelper.lat_long_binning import LatLongBinning
-from latlonghelper.lat_long_distance import LatLongDistance
-from latlonghelper.plot_binned_lat_long import PlotBinnedLatLong
+from latlonghelper.lat_long_binning import lat_long_binning
+from latlonghelper.lat_long_distance import lat_long_distance
+from latlonghelper.plot_binned_lat_long import plot_binned_lat_long
 ```
 
 ## Sample dataset (Vancouver / UBC)
@@ -47,8 +47,8 @@ points = pd.DataFrame(
             "Port Moody"
         ],
         "latitude": [
-            49.2606, 
-            49.2620,  
+            49.2606,
+            49.2620,
             49.2827,
             49.2685,
             49.2488,
@@ -60,7 +60,7 @@ points = pd.DataFrame(
             49.2850
         ],
         "longitude": [
-            -123.2460, 
+            -123.2460,
             -123.2480,
             -123.1207,
             -123.1686,
@@ -78,17 +78,15 @@ points = pd.DataFrame(
 points
 ```
 
-# 1. Binning coordinates with `LatLongBinning`
+# 1. Binning coordinates with `lat_long_binning`
 
-`LatLongBinning(latitude, longitude)` assigns each coordinate to a latitude–longitude grid cell.
+`lat_long_binning(latitude, longitude)` assigns each coordinate to a latitude–longitude grid cell.
 
 ## Example A: Bin a single coordinate
 
 ```{python}
-LatLongBinning(49.2593, -123.2475)
+lat_long_binning(49.2593, -123.2475)
 ```
-
-What it does: LatLongBinning bins latitude and longitude into grid cells with the default size of 0.1° grid
 
 ## Example B: Bin all points (default grid size)
 
@@ -98,13 +96,11 @@ bins_default = []
 for i in range(len(points)):
     lat = points.loc[i, "latitude"]
     lon = points.loc[i, "longitude"]
-    bins_default.append(LatLongBinning(lat, lon))
+    bins_default.append(lat_long_binning(lat, lon))
 
 points["bin_default"] = bins_default
 points[["name", "bin_default"]]
 ```
-
-What it does: LatLongBinning bins all latitude and longitude points into grid cells with the default size of 0.1° grid
 
 ## Example C: Bin all points using a 0.05° grid
 
@@ -115,18 +111,16 @@ for i in range(len(points)):
     lat = points.loc[i, "latitude"]
     lon = points.loc[i, "longitude"]
     bins_005.append(
-        LatLongBinning(lat, lon, grid_size_latitude=0.05, grid_size_longitude=0.05)
+        lat_long_binning(lat, lon, grid_size_latitude=0.05, grid_size_longitude=0.05)
     )
 
 points["bin_005"] = bins_005
 points[["name", "bin_005"]]
 ```
 
-What it does: LatLongBinning bins all latitude and longitude points into grid cells with the grid size of 0.05° as defined in the function
+# 2. Distance calculation with `lat_long_distance`
 
-# 2. Distance calculation with `LatLongDistance`
-
-`LatLongDistance(lat1, lon1, lat2, lon2)` returns the distance in kilometers.
+`lat_long_distance(lat1, lon1, lat2, lon2)` returns the distance in kilometers.
 
 ## Example A: Distance from UBC to Downtown Vancouver
 
@@ -134,13 +128,11 @@ What it does: LatLongBinning bins all latitude and longitude points into grid ce
 ubc = points[points["name"] == "UBC"].iloc[0]
 dt = points[points["name"] == "Downtown Vancouver"].iloc[0]
 
-LatLongDistance(
+lat_long_distance(
     ubc["latitude"], ubc["longitude"],
     dt["latitude"], dt["longitude"]
 )
 ```
-
-What it does: LatLongDistance calculates the distance between UBC and Downtown Vancouver in kilometers.
 
 ## Example B: Distance from UBC to all locations
 
@@ -151,83 +143,53 @@ for i in range(len(points)):
     lat = points.loc[i, "latitude"]
     lon = points.loc[i, "longitude"]
     distances.append(
-        LatLongDistance(ubc["latitude"], ubc["longitude"], lat, lon)
+        lat_long_distance(ubc["latitude"], ubc["longitude"], lat, lon)
     )
 
 points["distance_from_ubc_km"] = distances
 points[["name", "distance_from_ubc_km"]].sort_values("distance_from_ubc_km")
 ```
 
-What it does: LatLongDistance calculates distances between UBC and all locations in kilometers.
-
-# 3. Visualizing binned data with `PlotBinnedLatLong`
-
-`PlotBinnedLatLong()` visualizes the frequency of binned latitude–longitude coordinates using a heatmap.
-
-## Example: Plot heatmap using 0.05° bins
+# 3. Visualizing binned data with `plot_binned_lat_long`
 
 ```{python}
 import matplotlib.pyplot as plt
 
 binned_list = points["bin_005"].tolist()
 
-ax = PlotBinnedLatLong(binned_list, width=10, height=6)
+ax = plot_binned_lat_long(binned_list, width=10, height=6)
 plt.show()
 ```
 
-What it does: PlotBinnedLatLong visualizes the frequency of binned latitude–longitude coordinates using a heatmap. The output should look like this figure.
-
-![](images/Figure_1.png)
+![](../images/Figure_1.png)
 
 # End-to-end workflow
 
-This workflow demonstrates a complete use case:
-
-1.  Bin coordinates\
-2.  Count bins\
-3.  Plot heatmap\
-4.  Compute distances from UBC
-
 ```{python}
-# Bin coordinates
 bins = []
 for i in range(len(points)):
     lat = points.loc[i, "latitude"]
     lon = points.loc[i, "longitude"]
-    bins.append(LatLongBinning(lat, lon, 0.05, 0.05))
+    bins.append(lat_long_binning(lat, lon, 0.05, 0.05))
 
 points["bin"] = bins
 points["bin"].value_counts()
 ```
 
 ```{python}
-# Plot heatmap
-ax = PlotBinnedLatLong(points["bin"].tolist())
+ax = plot_binned_lat_long(points["bin"].tolist())
 plt.show()
 ```
 
 ```{python}
-# Distances from UBC
 distances = []
 for i in range(len(points)):
     lat = points.loc[i, "latitude"]
     lon = points.loc[i, "longitude"]
     distances.append(
-        LatLongDistance(ubc["latitude"], ubc["longitude"], lat, lon)
+        lat_long_distance(ubc["latitude"], ubc["longitude"], lat, lon)
     )
 
 points["distance_from_ubc_km"] = distances
 points[["name", "bin", "distance_from_ubc_km"]]
 ```
-
-## Notes
-
--   Latitude must be between **−90 and 90**
--   Longitude must be between **−180 and 180**
--   Grid sizes must be **greater than 0**
--   Coarser grids produce clearer heatmaps for small datasets
-
-## Reference
-
--   For more details on all functions, see the [API Reference](https://ubc-mds.github.io/latlonghelper/reference/).
--   [View or contribute to the project on GitHub.](https://github.com/UBC-MDS/latlonghelper)

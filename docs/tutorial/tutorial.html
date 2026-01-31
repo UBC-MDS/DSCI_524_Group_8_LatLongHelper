@@ -163,26 +163,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#import-functions" id="toc-import-functions" class="nav-link" data-scroll-target="#import-functions">Import functions</a></li>
   <li><a href="#sample-dataset-vancouver-ubc" id="toc-sample-dataset-vancouver-ubc" class="nav-link" data-scroll-target="#sample-dataset-vancouver-ubc">Sample dataset (Vancouver / UBC)</a></li>
   </ul></li>
-  <li><a href="#binning-coordinates-with-latlongbinning" id="toc-binning-coordinates-with-latlongbinning" class="nav-link" data-scroll-target="#binning-coordinates-with-latlongbinning">1. Binning coordinates with <code>LatLongBinning</code></a>
+  <li><a href="#binning-coordinates-with-lat_long_binning" id="toc-binning-coordinates-with-lat_long_binning" class="nav-link" data-scroll-target="#binning-coordinates-with-lat_long_binning">1. Binning coordinates with <code>lat_long_binning</code></a>
   <ul class="collapse">
   <li><a href="#example-a-bin-a-single-coordinate" id="toc-example-a-bin-a-single-coordinate" class="nav-link" data-scroll-target="#example-a-bin-a-single-coordinate">Example A: Bin a single coordinate</a></li>
   <li><a href="#example-b-bin-all-points-default-grid-size" id="toc-example-b-bin-all-points-default-grid-size" class="nav-link" data-scroll-target="#example-b-bin-all-points-default-grid-size">Example B: Bin all points (default grid size)</a></li>
   <li><a href="#example-c-bin-all-points-using-a-0.05-grid" id="toc-example-c-bin-all-points-using-a-0.05-grid" class="nav-link" data-scroll-target="#example-c-bin-all-points-using-a-0.05-grid">Example C: Bin all points using a 0.05° grid</a></li>
   </ul></li>
-  <li><a href="#distance-calculation-with-latlongdistance" id="toc-distance-calculation-with-latlongdistance" class="nav-link" data-scroll-target="#distance-calculation-with-latlongdistance">2. Distance calculation with <code>LatLongDistance</code></a>
+  <li><a href="#distance-calculation-with-lat_long_distance" id="toc-distance-calculation-with-lat_long_distance" class="nav-link" data-scroll-target="#distance-calculation-with-lat_long_distance">2. Distance calculation with <code>lat_long_distance</code></a>
   <ul class="collapse">
   <li><a href="#example-a-distance-from-ubc-to-downtown-vancouver" id="toc-example-a-distance-from-ubc-to-downtown-vancouver" class="nav-link" data-scroll-target="#example-a-distance-from-ubc-to-downtown-vancouver">Example A: Distance from UBC to Downtown Vancouver</a></li>
   <li><a href="#example-b-distance-from-ubc-to-all-locations" id="toc-example-b-distance-from-ubc-to-all-locations" class="nav-link" data-scroll-target="#example-b-distance-from-ubc-to-all-locations">Example B: Distance from UBC to all locations</a></li>
   </ul></li>
-  <li><a href="#visualizing-binned-data-with-plotbinnedlatlong" id="toc-visualizing-binned-data-with-plotbinnedlatlong" class="nav-link" data-scroll-target="#visualizing-binned-data-with-plotbinnedlatlong">3. Visualizing binned data with <code>PlotBinnedLatLong</code></a>
-  <ul class="collapse">
-  <li><a href="#example-plot-heatmap-using-0.05-bins" id="toc-example-plot-heatmap-using-0.05-bins" class="nav-link" data-scroll-target="#example-plot-heatmap-using-0.05-bins">Example: Plot heatmap using 0.05° bins</a></li>
-  </ul></li>
-  <li><a href="#end-to-end-workflow" id="toc-end-to-end-workflow" class="nav-link" data-scroll-target="#end-to-end-workflow">End-to-end workflow</a>
-  <ul class="collapse">
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
-  </ul></li>
+  <li><a href="#visualizing-binned-data-with-plot_binned_lat_long" id="toc-visualizing-binned-data-with-plot_binned_lat_long" class="nav-link" data-scroll-target="#visualizing-binned-data-with-plot_binned_lat_long">3. Visualizing binned data with <code>plot_binned_lat_long</code></a></li>
+  <li><a href="#end-to-end-workflow" id="toc-end-to-end-workflow" class="nav-link" data-scroll-target="#end-to-end-workflow">End-to-end workflow</a></li>
   </ul>
 </nav>
     </div>
@@ -212,23 +205,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>LatLongHelper Tutorial</h1>
 <p>This tutorial demonstrates how to use the three functions provided by <strong>LatLongHelper</strong>:</p>
 <ul>
-<li><code>LatLongBinning()</code> — bins latitude and longitude into grid cells<br>
+<li><code>lat_long_binning()</code> — bins latitude and longitude into grid cells<br>
 </li>
-<li><code>LatLongDistance()</code> — calculates great-circle distance (km)<br>
+<li><code>lat_long_distance()</code> — calculates great-circle distance (km)<br>
 </li>
-<li><code>PlotBinnedLatLong()</code> — visualizes spatial density as a heatmap</li>
+<li><code>plot_binned_lat_long()</code> — visualizes spatial density as a heatmap</li>
 </ul>
 <section id="import-functions" class="level2">
 <h2 class="anchored" data-anchor-id="import-functions">Import functions</h2>
-<div id="65aeed14" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_binning <span class="im">import</span> LatLongBinning</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_distance <span class="im">import</span> LatLongDistance</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.plot_binned_lat_long <span class="im">import</span> PlotBinnedLatLong</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="899e3047" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_binning <span class="im">import</span> lat_long_binning</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_distance <span class="im">import</span> lat_long_distance</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.plot_binned_lat_long <span class="im">import</span> plot_binned_lat_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="sample-dataset-vancouver-ubc" class="level2">
 <h2 class="anchored" data-anchor-id="sample-dataset-vancouver-ubc">Sample dataset (Vancouver / UBC)</h2>
-<div id="95cfd7c4" class="cell">
+<div id="f3ec182e" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>points <span class="op">=</span> pd.DataFrame(</span>
@@ -247,8 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Port Moody"</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        ],</span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"latitude"</span>: [</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2606</span>, </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2620</span>,  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2606</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2620</span>,</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2827</span>,</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2685</span>,</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2488</span>,</span>
@@ -260,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2850</span></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        ],</span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">"longitude"</span>: [</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.2460</span>, </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.2460</span>,</span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.2480</span>,</span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.1207</span>,</span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.1686</span>,</span>
@@ -279,161 +272,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="binning-coordinates-with-latlongbinning" class="level1">
-<h1>1. Binning coordinates with <code>LatLongBinning</code></h1>
-<p><code>LatLongBinning(latitude, longitude)</code> assigns each coordinate to a latitude–longitude grid cell.</p>
+<section id="binning-coordinates-with-lat_long_binning" class="level1">
+<h1>1. Binning coordinates with <code>lat_long_binning</code></h1>
+<p><code>lat_long_binning(latitude, longitude)</code> assigns each coordinate to a latitude–longitude grid cell.</p>
 <section id="example-a-bin-a-single-coordinate" class="level2">
 <h2 class="anchored" data-anchor-id="example-a-bin-a-single-coordinate">Example A: Bin a single coordinate</h2>
-<div id="d15614a9" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>LatLongBinning(<span class="fl">49.2593</span>, <span class="op">-</span><span class="fl">123.2475</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8ae4928e" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lat_long_binning(<span class="fl">49.2593</span>, <span class="op">-</span><span class="fl">123.2475</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What it does: LatLongBinning bins latitude and longitude into grid cells with the default size of 0.1° grid</p>
 </section>
 <section id="example-b-bin-all-points-default-grid-size" class="level2">
 <h2 class="anchored" data-anchor-id="example-b-bin-all-points-default-grid-size">Example B: Bin all points (default grid size)</h2>
-<div id="4c618b6c" class="cell">
+<div id="7da011e7" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bins_default <span class="op">=</span> []</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    bins_default.append(LatLongBinning(lat, lon))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    bins_default.append(lat_long_binning(lat, lon))</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin_default"</span>] <span class="op">=</span> bins_default</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin_default"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What it does: LatLongBinning bins all latitude and longitude points into grid cells with the default size of 0.1° grid</p>
 </section>
 <section id="example-c-bin-all-points-using-a-0.05-grid" class="level2">
 <h2 class="anchored" data-anchor-id="example-c-bin-all-points-using-a-0.05-grid">Example C: Bin all points using a 0.05° grid</h2>
-<div id="8733ee4a" class="cell">
+<div id="15129f75" class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bins_005 <span class="op">=</span> []</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    bins_005.append(</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        LatLongBinning(lat, lon, grid_size_latitude<span class="op">=</span><span class="fl">0.05</span>, grid_size_longitude<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        lat_long_binning(lat, lon, grid_size_latitude<span class="op">=</span><span class="fl">0.05</span>, grid_size_longitude<span class="op">=</span><span class="fl">0.05</span>)</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin_005"</span>] <span class="op">=</span> bins_005</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin_005"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What it does: LatLongBinning bins all latitude and longitude points into grid cells with the grid size of 0.05° as defined in the function</p>
 </section>
 </section>
-<section id="distance-calculation-with-latlongdistance" class="level1">
-<h1>2. Distance calculation with <code>LatLongDistance</code></h1>
-<p><code>LatLongDistance(lat1, lon1, lat2, lon2)</code> returns the distance in kilometers.</p>
+<section id="distance-calculation-with-lat_long_distance" class="level1">
+<h1>2. Distance calculation with <code>lat_long_distance</code></h1>
+<p><code>lat_long_distance(lat1, lon1, lat2, lon2)</code> returns the distance in kilometers.</p>
 <section id="example-a-distance-from-ubc-to-downtown-vancouver" class="level2">
 <h2 class="anchored" data-anchor-id="example-a-distance-from-ubc-to-downtown-vancouver">Example A: Distance from UBC to Downtown Vancouver</h2>
-<div id="79a09da5" class="cell">
+<div id="63b76e57" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ubc <span class="op">=</span> points[points[<span class="st">"name"</span>] <span class="op">==</span> <span class="st">"UBC"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> points[points[<span class="st">"name"</span>] <span class="op">==</span> <span class="st">"Downtown Vancouver"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>LatLongDistance(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>lat_long_distance(</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>],</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    dt[<span class="st">"latitude"</span>], dt[<span class="st">"longitude"</span>]</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What it does: LatLongDistance calculates the distance between UBC and Downtown Vancouver in kilometers.</p>
 </section>
 <section id="example-b-distance-from-ubc-to-all-locations" class="level2">
 <h2 class="anchored" data-anchor-id="example-b-distance-from-ubc-to-all-locations">Example B: Distance from UBC to all locations</h2>
-<div id="bcf86888" class="cell">
+<div id="56e82ff1" class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    distances.append(</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        LatLongDistance(ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>], lat, lon)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        lat_long_distance(ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>], lat, lon)</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"distance_from_ubc_km"</span>] <span class="op">=</span> distances</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"distance_from_ubc_km"</span>]].sort_values(<span class="st">"distance_from_ubc_km"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What it does: LatLongDistance calculates distances between UBC and all locations in kilometers.</p>
 </section>
 </section>
-<section id="visualizing-binned-data-with-plotbinnedlatlong" class="level1">
-<h1>3. Visualizing binned data with <code>PlotBinnedLatLong</code></h1>
-<p><code>PlotBinnedLatLong()</code> visualizes the frequency of binned latitude–longitude coordinates using a heatmap.</p>
-<section id="example-plot-heatmap-using-0.05-bins" class="level2">
-<h2 class="anchored" data-anchor-id="example-plot-heatmap-using-0.05-bins">Example: Plot heatmap using 0.05° bins</h2>
-<div id="8af4693f" class="cell">
+<section id="visualizing-binned-data-with-plot_binned_lat_long" class="level1">
+<h1>3. Visualizing binned data with <code>plot_binned_lat_long</code></h1>
+<div id="4fc77dd6" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>binned_list <span class="op">=</span> points[<span class="st">"bin_005"</span>].tolist()</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> PlotBinnedLatLong(binned_list, width<span class="op">=</span><span class="dv">10</span>, height<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plot_binned_lat_long(binned_list, width<span class="op">=</span><span class="dv">10</span>, height<span class="op">=</span><span class="dv">6</span>)</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What it does: PlotBinnedLatLong visualizes the frequency of binned latitude–longitude coordinates using a heatmap. The output should look like this figure.</p>
-<p><img src="images/Figure_1.png" class="img-fluid"></p>
-</section>
+<p><img src="../images/Figure_1.png" class="img-fluid"></p>
 </section>
 <section id="end-to-end-workflow" class="level1">
 <h1>End-to-end workflow</h1>
-<p>This workflow demonstrates a complete use case:</p>
-<ol type="1">
-<li>Bin coordinates<br>
-</li>
-<li>Count bins<br>
-</li>
-<li>Plot heatmap<br>
-</li>
-<li>Compute distances from UBC</li>
-</ol>
-<div id="cdf926d7" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin coordinates</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> []</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    bins.append(LatLongBinning(lat, lon, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>] <span class="op">=</span> bins</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5b6356e6" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> []</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    bins.append(lat_long_binning(lat, lon, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>] <span class="op">=</span> bins</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="27afbb4d" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> PlotBinnedLatLong(points[<span class="st">"bin"</span>].tolist())</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2af71c0b" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plot_binned_lat_long(points[<span class="st">"bin"</span>].tolist())</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="80bff183" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distances from UBC</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    distances.append(</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        LatLongDistance(ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>], lat, lon)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"distance_from_ubc_km"</span>] <span class="op">=</span> distances</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin"</span>, <span class="st">"distance_from_ubc_km"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1b5b2056" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    distances.append(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        lat_long_distance(ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>], lat, lon)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"distance_from_ubc_km"</span>] <span class="op">=</span> distances</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin"</span>, <span class="st">"distance_from_ubc_km"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<ul>
-<li>Latitude must be between <strong>−90 and 90</strong></li>
-<li>Longitude must be between <strong>−180 and 180</strong></li>
-<li>Grid sizes must be <strong>greater than 0</strong></li>
-<li>Coarser grids produce clearer heatmaps for small datasets</li>
-</ul>
-</section>
-<section id="reference" class="level2">
-<h2 class="anchored" data-anchor-id="reference">Reference</h2>
-<ul>
-<li>For more details on all functions, see the <a href="https://ubc-mds.github.io/latlonghelper/reference/">API Reference</a>.</li>
-<li><a href="https://github.com/UBC-MDS/latlonghelper">View or contribute to the project on GitHub.</a></li>
-</ul>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -903,16 +857,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>This tutorial demonstrates how to use the three functions provided by **LatLongHelper**:</span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`LatLongBinning()`</span> — bins latitude and longitude into grid cells\</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`LatLongDistance()`</span> — calculates great-circle distance (km)\</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`PlotBinnedLatLong()`</span> — visualizes spatial density as a heatmap</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`lat_long_binning()`</span> — bins latitude and longitude into grid cells\</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`lat_long_distance()`</span> — calculates great-circle distance (km)\</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`plot_binned_lat_long()`</span> — visualizes spatial density as a heatmap</span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Import functions</span></span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_binning <span class="im">import</span> LatLongBinning</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_distance <span class="im">import</span> LatLongDistance</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.plot_binned_lat_long <span class="im">import</span> PlotBinnedLatLong</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_binning <span class="im">import</span> lat_long_binning</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_distance <span class="im">import</span> lat_long_distance</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.plot_binned_lat_long <span class="im">import</span> plot_binned_lat_long</span>
 <span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sample dataset (Vancouver / UBC)</span></span>
@@ -936,8 +890,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Port Moody"</span></span>
 <span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>        ],</span>
 <span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>        <span class="st">"latitude"</span>: [</span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2606</span>, </span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2620</span>,  </span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2606</span>,</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2620</span>,</span>
 <span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2827</span>,</span>
 <span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2685</span>,</span>
 <span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2488</span>,</span>
@@ -949,7 +903,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>            <span class="fl">49.2850</span></span>
 <span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>        ],</span>
 <span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>        <span class="st">"longitude"</span>: [</span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.2460</span>, </span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.2460</span>,</span>
 <span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.2480</span>,</span>
 <span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.1207</span>,</span>
 <span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>            <span class="op">-</span><span class="fl">123.1686</span>,</span>
@@ -967,159 +921,121 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>points</span>
 <span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1. Binning coordinates with `LatLongBinning`</span></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1. Binning coordinates with `lat_long_binning`</span></span>
 <span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="in">`LatLongBinning(latitude, longitude)`</span> assigns each coordinate to a latitude–longitude grid cell.</span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="in">`lat_long_binning(latitude, longitude)`</span> assigns each coordinate to a latitude–longitude grid cell.</span>
 <span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example A: Bin a single coordinate</span></span>
 <span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>LatLongBinning(<span class="fl">49.2593</span>, <span class="op">-</span><span class="fl">123.2475</span>)</span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>lat_long_binning(<span class="fl">49.2593</span>, <span class="op">-</span><span class="fl">123.2475</span>)</span>
 <span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>What it does: LatLongBinning bins latitude and longitude into grid cells with the default size of 0.1° grid</span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example B: Bin all points (default grid size)</span></span>
 <span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example B: Bin all points (default grid size)</span></span>
-<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>bins_default <span class="op">=</span> []</span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>    bins_default.append(LatLongBinning(lat, lon))</span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin_default"</span>] <span class="op">=</span> bins_default</span>
-<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin_default"</span>]]</span>
-<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>bins_default <span class="op">=</span> []</span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>    bins_default.append(lat_long_binning(lat, lon))</span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin_default"</span>] <span class="op">=</span> bins_default</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin_default"</span>]]</span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example C: Bin all points using a 0.05° grid</span></span>
 <span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>What it does: LatLongBinning bins all latitude and longitude points into grid cells with the default size of 0.1° grid</span>
-<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example C: Bin all points using a 0.05° grid</span></span>
-<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>bins_005 <span class="op">=</span> []</span>
-<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
-<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
-<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
-<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>    bins_005.append(</span>
-<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a>        LatLongBinning(lat, lon, grid_size_latitude<span class="op">=</span><span class="fl">0.05</span>, grid_size_longitude<span class="op">=</span><span class="fl">0.05</span>)</span>
-<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a>bins_005 <span class="op">=</span> []</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>    bins_005.append(</span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a>        lat_long_binning(lat, lon, grid_size_latitude<span class="op">=</span><span class="fl">0.05</span>, grid_size_longitude<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin_005"</span>] <span class="op">=</span> bins_005</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin_005"</span>]]</span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin_005"</span>] <span class="op">=</span> bins_005</span>
-<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin_005"</span>]]</span>
-<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a><span class="fu"># 2. Distance calculation with `lat_long_distance`</span></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">`lat_long_distance(lat1, lon1, lat2, lon2)`</span> returns the distance in kilometers.</span>
 <span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a>What it does: LatLongBinning bins all latitude and longitude points into grid cells with the grid size of 0.05° as defined in the function</span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example A: Distance from UBC to Downtown Vancouver</span></span>
 <span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="fu"># 2. Distance calculation with `LatLongDistance`</span></span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a><span class="in">`LatLongDistance(lat1, lon1, lat2, lon2)`</span> returns the distance in kilometers.</span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example A: Distance from UBC to Downtown Vancouver</span></span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>ubc <span class="op">=</span> points[points[<span class="st">"name"</span>] <span class="op">==</span> <span class="st">"UBC"</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> points[points[<span class="st">"name"</span>] <span class="op">==</span> <span class="st">"Downtown Vancouver"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>ubc <span class="op">=</span> points[points[<span class="st">"name"</span>] <span class="op">==</span> <span class="st">"UBC"</span>].iloc[<span class="dv">0</span>]</span>
-<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> points[points[<span class="st">"name"</span>] <span class="op">==</span> <span class="st">"Downtown Vancouver"</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>lat_long_distance(</span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>    ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>],</span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>    dt[<span class="st">"latitude"</span>], dt[<span class="st">"longitude"</span>]</span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>LatLongDistance(</span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>    ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>],</span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a>    dt[<span class="st">"latitude"</span>], dt[<span class="st">"longitude"</span>]</span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a>What it does: LatLongDistance calculates the distance between UBC and Downtown Vancouver in kilometers.</span>
-<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example B: Distance from UBC to all locations</span></span>
-<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
-<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
-<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
-<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a>    distances.append(</span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>        LatLongDistance(ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>], lat, lon)</span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"distance_from_ubc_km"</span>] <span class="op">=</span> distances</span>
-<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"distance_from_ubc_km"</span>]].sort_values(<span class="st">"distance_from_ubc_km"</span>)</span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>What it does: LatLongDistance calculates distances between UBC and all locations in kilometers.</span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. Visualizing binned data with `PlotBinnedLatLong`</span></span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a><span class="in">`PlotBinnedLatLong()`</span> visualizes the frequency of binned latitude–longitude coordinates using a heatmap.</span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example: Plot heatmap using 0.05° bins</span></span>
-<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>binned_list <span class="op">=</span> points[<span class="st">"bin_005"</span>].tolist()</span>
-<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> PlotBinnedLatLong(binned_list, width<span class="op">=</span><span class="dv">10</span>, height<span class="op">=</span><span class="dv">6</span>)</span>
-<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>What it does: PlotBinnedLatLong visualizes the frequency of binned latitude–longitude coordinates using a heatmap. The output should look like this figure.</span>
-<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/Figure_1.png)</span></span>
-<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a><span class="fu"># End-to-end workflow</span></span>
-<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a>This workflow demonstrates a complete use case:</span>
-<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Bin coordinates\</span>
-<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Count bins\</span>
-<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Plot heatmap\</span>
-<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Compute distances from UBC</span>
-<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin coordinates</span></span>
-<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> []</span>
-<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
-<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
-<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
-<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>    bins.append(LatLongBinning(lat, lon, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span>
-<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>] <span class="op">=</span> bins</span>
-<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>].value_counts()</span>
-<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap</span></span>
-<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> PlotBinnedLatLong(points[<span class="st">"bin"</span>].tolist())</span>
-<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a><span class="co"># Distances from UBC</span></span>
-<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
-<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
-<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
-<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
-<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a>    distances.append(</span>
-<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a>        LatLongDistance(ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>], lat, lon)</span>
-<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"distance_from_ubc_km"</span>] <span class="op">=</span> distances</span>
-<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin"</span>, <span class="st">"distance_from_ubc_km"</span>]]</span>
-<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## Notes</span></span>
-<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Latitude must be between **−90 and 90**</span>
-<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Longitude must be between **−180 and 180**</span>
-<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Grid sizes must be **greater than 0**</span>
-<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Coarser grids produce clearer heatmaps for small datasets</span>
-<span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reference</span></span>
-<span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>For more details on all functions, see the <span class="co">[</span><span class="ot">API Reference</span><span class="co">](https://ubc-mds.github.io/latlonghelper/reference/)</span>.</span>
-<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">View or contribute to the project on GitHub.</span><span class="co">](https://github.com/UBC-MDS/latlonghelper)</span></span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example B: Distance from UBC to all locations</span></span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a>    distances.append(</span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a>        lat_long_distance(ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>], lat, lon)</span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"distance_from_ubc_km"</span>] <span class="op">=</span> distances</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"distance_from_ubc_km"</span>]].sort_values(<span class="st">"distance_from_ubc_km"</span>)</span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. Visualizing binned data with `plot_binned_lat_long`</span></span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>binned_list <span class="op">=</span> points[<span class="st">"bin_005"</span>].tolist()</span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plot_binned_lat_long(binned_list, width<span class="op">=</span><span class="dv">10</span>, height<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/Figure_1.png)</span></span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="fu"># End-to-end workflow</span></span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> []</span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>    bins.append(lat_long_binning(lat, lon, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>] <span class="op">=</span> bins</span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"bin"</span>].value_counts()</span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plot_binned_lat_long(points[<span class="st">"bin"</span>].tolist())</span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>distances <span class="op">=</span> []</span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(points)):</span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a>    lat <span class="op">=</span> points.loc[i, <span class="st">"latitude"</span>]</span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a>    lon <span class="op">=</span> points.loc[i, <span class="st">"longitude"</span>]</span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>    distances.append(</span>
+<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a>        lat_long_distance(ubc[<span class="st">"latitude"</span>], ubc[<span class="st">"longitude"</span>], lat, lon)</span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>points[<span class="st">"distance_from_ubc_km"</span>] <span class="op">=</span> distances</span>
+<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a>points[[<span class="st">"name"</span>, <span class="st">"bin"</span>, <span class="st">"distance_from_ubc_km"</span>]]</span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

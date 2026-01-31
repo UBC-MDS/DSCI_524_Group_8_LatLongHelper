@@ -6,11 +6,11 @@ visualizations via latitude–longitude binning.
 
 Functions included:
 
-- `LatLongDistance`: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates.
-- `LatLongBinning`: bins latitude and longitude into different groups to aid in grouping or for use in `PlotBinnedLatLong`.
-- `PlotBinnedLatLong`: visualizes binned geographic coordinates on a heatmap.
+- `lat_long_distance`: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates.
+- `lat_long_binning`: bins latitude and longitude into different groups to aid in grouping or for use in `plot_binned_lat_long`.
+- `plot_binned_lat_long`: visualizes binned geographic coordinates on a heatmap.
 
-`LatLongDistance` is a common function found in many packages such as [GeoPy](https://geopy.readthedocs.io/en/stable/) and [Haversine](https://pypi.org/project/haversine/). However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple `Pandas` functions to do so. We aim to create a simplification of the binning and their plot without the user's having to rely on multiple uses and transformation on their part.
+`lat_long_distance` is a common function found in many packages such as [GeoPy](https://geopy.readthedocs.io/en/stable/) and [Haversine](https://pypi.org/project/haversine/). However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple `Pandas` functions to do so. We aim to create a simplification of the binning and their plot without the user's having to rely on multiple uses and transformation on their part.
 
 ## What does “binning” latitude and longitude mean?
 
@@ -28,7 +28,7 @@ same bin. This is useful for:
 
 ## Example output
 
-Below is an example heatmap produced by `PlotBinnedLatLong`, showing the spatial
+Below is an example heatmap produced by `plot_binned_lat_long`, showing the spatial
 density of binned latitude–longitude points.
 ![](images/Figure_1.png)
 
@@ -36,9 +36,9 @@ density of binned latitude–longitude points.
 ## Usage example
 
 ```python
-from latlonghelper.lat_long_binning import LatLongBinning
-from latlonghelper.lat_long_distance import LatLongDistance
-from latlonghelper.plot_binned_lat_long import PlotBinnedLatLong
+from latlonghelper.lat_long_binning import lat_long_binning
+from latlonghelper.lat_long_distance import lat_long_distance
+from latlonghelper.plot_binned_lat_long import plot_binned_lat_long
 import matplotlib.pyplot as plt
 
 # Example coordinates (Vancouver area)
@@ -48,16 +48,17 @@ longitudes = [-123.2460, -123.1207, -123.1686]
 # Bin coordinates
 binned = []
 for lat, lon in zip(latitudes, longitudes):
-    binned.append(LatLongBinning(lat, lon, 0.05, 0.05))
+    binned.append(lat_long_binning(lat, lon, 0.05, 0.05))
 
 # Plot heatmap
-ax = PlotBinnedLatLong(binned)
+ax = plot_binned_lat_long(binned)
 plt.show()
 
 # Distance example
-distance = LatLongDistance(49.2606, -123.2460, 49.2827, -123.1207)
+distance = lat_long_distance(49.2606, -123.2460, 49.2827, -123.1207)
 print(distance)
 ```
+
 More detailed examples and tutorials are available on the documentation website.
 
 
