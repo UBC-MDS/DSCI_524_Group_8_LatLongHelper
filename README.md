@@ -1,5 +1,7 @@
 # latlonghelper
 
+[![codecov](https://codecov.io/gh/UBC-MDS/latlonghelper/branch/main/graph/badge.svg?token=ZT9sK6gx1A)](https://codecov.io/gh/UBC-MDS/latlonghelper)
+
 A package for cleaning and utilizing geospatial data. Allows the use of geospatial
 data to help create summarizations such as distance calculations or rudimentary
 visualizations via latitude–longitude binning.
