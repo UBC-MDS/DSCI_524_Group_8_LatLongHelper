@@ -1,6 +1,6 @@
 import math
 
-def LatLongDistance(latitude_1: float, longitude_1: float, latitude_2: float, longitude_2: float) -> float:
+def lat_long_distance(latitude_1: float, longitude_1: float, latitude_2: float, longitude_2: float) -> float:
     """
     A function that calculates the distance between two geographic points given their latitude 
     and longitude coordinates.
@@ -35,7 +35,7 @@ def LatLongDistance(latitude_1: float, longitude_1: float, latitude_2: float, lo
     
     Examples
     --------
-    >>> LatLongDistance(40.7128, -74.0060, 34.0522, -118.2437)
+    >>> lat_long_distance(40.7128, -74.0060, 34.0522, -118.2437)
     3935.75
     """
     
