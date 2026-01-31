@@ -8,3 +8,10 @@ objects.json
 /.quarto/
 
 **/*.quarto_ipynb
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# R history
+.Rhistory

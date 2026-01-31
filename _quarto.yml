@@ -26,9 +26,9 @@ website:
         - reference/index.qmd
         - section: "Available Functions"
           contents:
-            - reference/lat_long_binning.LatLongBinning.qmd
-            - reference/lat_long_distance.LatLongDistance.qmd
-            - reference/plot_binned_lat_long.PlotBinnedLatLong.qmd
+            - reference/lat_long_binning.lat_long_binning.qmd
+            - reference/lat_long_distance.lat_long_distance.qmd
+            - reference/plot_binned_lat_long.plot_binned_lat_long.qmd
 
 format:
   html:
@@ -42,13 +42,10 @@ quartodoc:
   package: latlonghelper
   parser: numpy
 
-  options:
-    show_module: false
-
   sections:
     - title: "Geospatial Utility Functions"
       desc: "Core classes for binning, distance computation, and plotting latitude–longitude data"
       contents:
-        - lat_long_binning.LatLongBinning
-        - lat_long_distance.LatLongDistance
-        - plot_binned_lat_long.PlotBinnedLatLong
+        - lat_long_binning.lat_long_binning
+        - lat_long_distance.lat_long_distance
+        - plot_binned_lat_long.plot_binned_lat_long

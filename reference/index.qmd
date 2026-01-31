@@ -6,6 +6,6 @@ Core classes for binning, distance computation, and plotting latitude–longitud
 
 | | |
 | --- | --- |
-| [lat_long_binning.LatLongBinning](lat_long_binning.LatLongBinning.qmd#latlonghelper.lat_long_binning.LatLongBinning) | A function that is used to bin latitude and longitude into different groups |
-| [lat_long_distance.LatLongDistance](lat_long_distance.LatLongDistance.qmd#latlonghelper.lat_long_distance.LatLongDistance) | A function that calculates the distance between two geographic points given their latitude  |
-| [plot_binned_lat_long.PlotBinnedLatLong](plot_binned_lat_long.PlotBinnedLatLong.qmd#latlonghelper.plot_binned_lat_long.PlotBinnedLatLong) | Visualizes binned geographic coordinates on a heatmap. |
+| [lat_long_binning.lat_long_binning](lat_long_binning.lat_long_binning.qmd#latlonghelper.lat_long_binning.lat_long_binning) | A function that is used to bin latitude and longitude into different groups |
+| [lat_long_distance.lat_long_distance](lat_long_distance.lat_long_distance.qmd#latlonghelper.lat_long_distance.lat_long_distance) | A function that calculates the distance between two geographic points given their latitude  |
+| [plot_binned_lat_long.plot_binned_lat_long](plot_binned_lat_long.plot_binned_lat_long.qmd#latlonghelper.plot_binned_lat_long.plot_binned_lat_long) | Visualize binned geographic coordinates on a heatmap. |
