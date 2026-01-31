@@ -13,7 +13,5 @@ objects.json
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
-**/.ipynb_checkpoints/
-
+# R history
+.Rhistory
