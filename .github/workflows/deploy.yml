@@ -26,8 +26,8 @@ jobs:
           python-version: "3.12" # Select the version that you want to build your package on
       - name: Upgrade pip, install Hatch, and check Hatch version
         run: |
-          pip install --upgrade pip
-          pip install --upgrade hatch
+          python -m pip install --upgrade pip
+          pip install .[dev]
           hatch --version # Verify that Hatch is installed
       - name: Build artifacts
         run: hatch build
@@ -46,6 +46,7 @@ jobs:
       name: testpypi 
     permissions:
       id-token: write
+      contents: read
     steps:
       - uses: actions/download-artifact@v4 
         with:

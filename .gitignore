@@ -6,5 +6,6 @@ __pycache__/
 .quarto/
 objects.json
 /.quarto/
+src/latlonghelper/__version__.py
 
 **/*.quarto_ipynb
