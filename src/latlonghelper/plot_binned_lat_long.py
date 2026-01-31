@@ -35,30 +35,28 @@ def plot_binned_lat_long(binned_data, width=10, height=6):
 
     latitudes = []
     longitudes = []
-
-    # Parse latitude and longitude values
+    
+    # Create data frame for lat and long data
     for item in binned_data:
         lat_str, lon_str = item.split("_")
         latitudes.append(float(lat_str))
         longitudes.append(float(lon_str))
-
-    df = pd.DataFrame({"lat": latitudes, "lon": longitudes})
-
-    # Create heatmap data
-    heatmap_data = df.groupby(["lat", "lon"]).size().unstack(fill_value=0)
-
-    # Sort latitude bins from north to south
+    
+    df = pd.DataFrame({'lat': latitudes, 'lon': longitudes})
+    
+    # Create heatmap using data frame
+    heatmap_data = df.groupby(['lat', 'lon']).size().unstack(fill_value=0)
+    
+    # Sort heatmap
     heatmap_data = heatmap_data.sort_index(ascending=False)
 
     plt.figure(figsize=(width, height))
-    ax = sns.heatmap(
-        heatmap_data,
-        cmap="YlGnBu",
-        cbar_kws={"label": "Frequency"},
-    )
-
+    ax = sns.heatmap(heatmap_data, cmap="YlGnBu", cbar_kws={'label': 'Frequency'})
+    
+    # Set labels for heatmap
     plt.title("Geographic Bin Density Heatmap")
     plt.xlabel("Longitude Bins")
     plt.ylabel("Latitude Bins")
-
+    
+    # Return heatmap
     return ax
