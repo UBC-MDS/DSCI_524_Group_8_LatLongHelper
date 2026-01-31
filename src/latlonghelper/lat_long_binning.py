@@ -1,6 +1,6 @@
 import math
 
-def LatLongBinning(latitude: float, longitude: float, grid_size_latitude: float = 0.01, grid_size_longitude: float = 0.01):
+def lat_long_binning(latitude: float, longitude: float, grid_size_latitude: float = 0.01, grid_size_longitude: float = 0.01):
     """
     A function that is used to bin latitude and longitude into different groups
 
@@ -31,7 +31,7 @@ def LatLongBinning(latitude: float, longitude: float, grid_size_latitude: float 
 
     Examples
     --------
-    >>> LatLongBinning(49.2593, -123.2475)
+    >>> lat_long_binning(49.2593, -123.2475)
     '49.25_-123.25'    
     """
     # Type checks (optional but good defensive practice)

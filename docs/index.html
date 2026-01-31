@@ -128,6 +128,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./tutorial/tutorial.html"> 
+<span class="menu-text">Tutorial</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./reference/index.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
@@ -156,6 +160,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#latlonghelper" id="toc-latlonghelper" class="nav-link active" data-scroll-target="#latlonghelper">latlonghelper</a>
   <ul class="collapse">
+  <li><a href="#what-does-binning-latitude-and-longitude-mean" id="toc-what-does-binning-latitude-and-longitude-mean" class="nav-link" data-scroll-target="#what-does-binning-latitude-and-longitude-mean">What does “binning” latitude and longitude mean?</a></li>
+  <li><a href="#example-output" id="toc-example-output" class="nav-link" data-scroll-target="#example-output">Example output</a></li>
+  <li><a href="#usage-example" id="toc-usage-example" class="nav-link" data-scroll-target="#usage-example">Usage example</a></li>
   <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
   <ul class="collapse">
@@ -182,9 +189,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="latlonghelper" class="level1">
 <h1>latlonghelper</h1>
-<p>A package for cleaning and utilizing geospatial data. Allows the use of geospatial data to help create summarizations such as distance or create rudimentary plots via the binning functionality included in the package.</p>
-<p>Functions included: - <code>LatLongDistance</code>: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates. - <code>LatLongBinning</code>: bins latitude and longitude into different groups to aid in grouping or for use in <code>PlotBinnedLatLong</code>. - <code>PlotBinnedLatLong</code>: visualizes binned geographic coordinates on a heatmap.</p>
-<p><code>LatLongDistance</code> is a common function found in many packages such as <a href="https://geopy.readthedocs.io/en/stable/">GeoPy</a> and <a href="https://pypi.org/project/haversine/">Haversine</a>. However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple <code>Pandas</code> functions to do so. We aim to create a simplification of the binning and their plot without the user’s having to rely on multiple uses and transformation on their part.</p>
+<p>A package for cleaning and utilizing geospatial data. Allows the use of geospatial data to help create summarizations such as distance calculations or rudimentary visualizations via latitude–longitude binning.</p>
+<p>Functions included:</p>
+<ul>
+<li><code>lat_long_distance</code>: calculates the distance (in kilometres) between two geographic points given their latitude and longitude coordinates.</li>
+<li><code>lat_long_binning</code>: bins latitude and longitude into different groups to aid in grouping or for use in <code>plot_binned_lat_long</code>.</li>
+<li><code>plot_binned_lat_long</code>: visualizes binned geographic coordinates on a heatmap.</li>
+</ul>
+<p><code>lat_long_distance</code> is a common function found in many packages such as <a href="https://geopy.readthedocs.io/en/stable/">GeoPy</a> and <a href="https://pypi.org/project/haversine/">Haversine</a>. However, binning and plotting such binned latitudes and longitudes does not currently exist. Current methods to bin require the use of multiple <code>Pandas</code> functions to do so. We aim to create a simplification of the binning and their plot without the user’s having to rely on multiple uses and transformation on their part.</p>
+<section id="what-does-binning-latitude-and-longitude-mean" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-binning-latitude-and-longitude-mean">What does “binning” latitude and longitude mean?</h2>
+<p>Binning latitude and longitude refers to <strong>grouping nearby geographic points into fixed-size grid cells</strong>.</p>
+<p>For example, with a grid size of <code>0.05°</code>, all points whose latitudes fall between 49.25 and 49.30 and longitudes between −123.20 and −123.15 would be assigned to the same bin. This is useful for:</p>
+<ul>
+<li>aggregating spatial data</li>
+<li>counting observations in geographic regions</li>
+<li>creating density-style visualizations (e.g., heatmaps)</li>
+<li>reducing noise in very precise GPS data</li>
+</ul>
+</section>
+<section id="example-output" class="level2">
+<h2 class="anchored" data-anchor-id="example-output">Example output</h2>
+<p>Below is an example heatmap produced by <code>plot_binned_lat_long</code>, showing the spatial density of binned latitude–longitude points. <img src="images/Figure_1.png" class="img-fluid"></p>
+</section>
+<section id="usage-example" class="level2">
+<h2 class="anchored" data-anchor-id="usage-example">Usage example</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_binning <span class="im">import</span> lat_long_binning</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.lat_long_distance <span class="im">import</span> lat_long_distance</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latlonghelper.plot_binned_lat_long <span class="im">import</span> plot_binned_lat_long</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Example coordinates (Vancouver area)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>latitudes <span class="op">=</span> [<span class="fl">49.2606</span>, <span class="fl">49.2827</span>, <span class="fl">49.2685</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>longitudes <span class="op">=</span> [<span class="op">-</span><span class="fl">123.2460</span>, <span class="op">-</span><span class="fl">123.1207</span>, <span class="op">-</span><span class="fl">123.1686</span>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin coordinates</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>binned <span class="op">=</span> []</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lat, lon <span class="kw">in</span> <span class="bu">zip</span>(latitudes, longitudes):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    binned.append(lat_long_binning(lat, lon, <span class="fl">0.05</span>, <span class="fl">0.05</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plot_binned_lat_long(binned)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Distance example</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>distance <span class="op">=</span> lat_long_distance(<span class="fl">49.2606</span>, <span class="op">-</span><span class="fl">123.2460</span>, <span class="fl">49.2827</span>, <span class="op">-</span><span class="fl">123.1207</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(distance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>More detailed examples and tutorials are available on the documentation website.</p>
+</section>
 <section id="documentation" class="level2">
 <h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
 <p>Full documentation, including API references and examples, is available at:</p>
@@ -202,21 +254,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="install-from-source-recommended" class="level3">
 <h3 class="anchored" data-anchor-id="install-from-source-recommended">Install from source (recommended)</h3>
 <p>Clone the repository and install the package in editable mode:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/UBC-MDS/latlonghelper</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> latlonghelper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/UBC-MDS/latlonghelper</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> latlonghelper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="create-a-conda-environment" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-conda-environment">Create a conda environment</h3>
 <p>If you are using conda, you can create the development environment using:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate latlonghelper-env</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate latlonghelper-env</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="to-run-the-tests" class="level2">
 <h2 class="anchored" data-anchor-id="to-run-the-tests">To run the tests</h2>
 <p>You can run the tests for this package using <code>pytest</code>. First, install the testing dependencies:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">".[dev]"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">".[dev]"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, run the tests with:</p>
 <pre><code>pytest</code></pre>
 <p>To view the test coverage, run the following command:</p>
@@ -232,10 +284,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Build and preview the documentation.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quartodoc</span> build</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quartodoc</span> build</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To update the documentation website.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="contributing" class="level2">
 <h2 class="anchored" data-anchor-id="contributing">Contributing</h2>

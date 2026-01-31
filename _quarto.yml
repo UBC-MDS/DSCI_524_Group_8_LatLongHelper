@@ -12,6 +12,8 @@ website:
     left:
       - text: "Home"
         href: index.qmd
+      - text: "Tutorial"
+        href: tutorial/tutorial.qmd
       - text: "Reference"
         href: reference/index.qmd
     right:

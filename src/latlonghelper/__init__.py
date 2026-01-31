@@ -4,13 +4,13 @@ __version__ = version("latlonghelper")
 
 from .__about__ import __version__
 
-from .lat_long_binning import LatLongBinning
-from .lat_long_distance import LatLongDistance
-from .plot_binned_lat_long import PlotBinnedLatLong
+from .lat_long_binning import lat_long_binning
+from .lat_long_distance import lat_long_distance
+from .plot_binned_lat_long import plot_binned_lat_long
 
 __all__ = [
-    "LatLongBinning",
-    "LatLongDistance",
-    "PlotBinnedLatLong",
+    "lat_long_binning",
+    "lat_long_distance",
+    "plot_binned_lat_long",
     "__version__",
 ]
